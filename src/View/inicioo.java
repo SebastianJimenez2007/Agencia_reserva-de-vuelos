@@ -203,6 +203,7 @@ public class inicioo extends javax.swing.JFrame {
        java.util.Date fechaIda = fecha_ida.getDate();
        java.util.Date fechaVuelta = fecha_vuelta.getDate();
        
+       
          if (origen.equals("-------") || destino.equals("-------") || Npersonas.equals(" ") || fechaIda == null || fechaVuelta == null) {
         JOptionPane.showMessageDialog(this, "Por favor, seleccione todos los campos requeridos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         return; // Salir del método si hay campos vacíos
@@ -221,9 +222,14 @@ public class inicioo extends javax.swing.JFrame {
         
          VuelosdisponiblesDAO dao = new VuelosdisponiblesDAO();
          List<Vuelosdisponibles> vuelos = dao.buscarVuelos(origen, destino, fechaIdaStr, fechaVueltaStr, numPersonas);
+         
+         
         
        if (!vuelos.isEmpty()) {
-         new vuelosdisponibles().setVisible(true);
+         vuelosdisponibles ventanaVuelos = new vuelosdisponibles();
+         ventanaVuelos.setDato(origen + "  --->  ︎ " + destino);
+         ventanaVuelos.setVisible(true);
+         
         
          this.dispose(); 
          

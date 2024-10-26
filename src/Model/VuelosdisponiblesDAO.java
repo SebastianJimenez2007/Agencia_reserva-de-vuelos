@@ -52,7 +52,7 @@ public class VuelosdisponiblesDAO {
   public Vuelosdisponibles buscarFechaCercana(String origen, String destino, String fechaIda) {
         Vuelosdisponibles vuelo = null;
         
-        String sql = "SELECT * FROM vuelosdisponibles WHERE origen = ? AND destino = ? AND fecha_salida > ? ORDER BY fecha_salida ASC LIMIT 1";
+        String sql = "SELECT * FROM vuelosdisponibles WHERE origen = ? AND destino = ? AND fecha_salida <= ? ORDER BY fecha_salida ASC LIMIT 1";
         
         try (Connection con = ConexionDB.conectar();
              PreparedStatement pst = con.prepareStatement(sql)) {
