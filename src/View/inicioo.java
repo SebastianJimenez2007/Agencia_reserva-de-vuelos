@@ -239,7 +239,7 @@ public class inicioo extends javax.swing.JFrame {
 
         if (vueloCercano != null) {
         // Mostrar la fecha más cercana
-        JOptionPane.showMessageDialog(this, "No hay vuelos disponibles para ese dia. La fecha más cercana es: " + vueloCercano.getFechaSalida());
+        JOptionPane.showMessageDialog(this, "No hay vuelos disponibles para ese dia por el momento pero tenemos otro para: " + vueloCercano.getFechaSalida());
          } else {
         // Mostrar mensaje indicando que no hay vuelos disponibles
         JOptionPane.showMessageDialog(this, "No hay vuelos disponibles de " + origen + " a " + destino +" en estos momentos.");
