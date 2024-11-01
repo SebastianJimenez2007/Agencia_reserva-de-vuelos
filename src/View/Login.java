@@ -201,20 +201,22 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtenterActionPerformed
-        String nombre = txtemail.getText();
-        String contraseña = new String(txtpassword.getPassword());
+      String nombre = txtemail.getText();
+String contraseña = new String(txtpassword.getPassword());
 
-        UsuarioDAO userDao = new UsuarioDAO();
+UsuarioDAO userDao = new UsuarioDAO();
+String role = userDao.authenticateUserAndGetRole(nombre, contraseña);
 
-        boolean isAuthenticated = userDao.authenticateUser(nombre, contraseña);
-
-        if (isAuthenticated) {
-            new inicioo().setVisible(true);
-
-            this.dispose(); 
-        } else {
-            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta", "Error de Login", JOptionPane.ERROR_MESSAGE);
-        }
+if (role != null) {
+    if (role.equals("admin")) {
+        new Admin().setVisible(true); // Ventana de administrador
+    } else {
+        new inicioo().setVisible(true); // Ventana de usuario normal
+    }
+    this.dispose();
+} else {
+    JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta", "Error de Login", JOptionPane.ERROR_MESSAGE);
+}
 
     }//GEN-LAST:event_BtenterActionPerformed
 

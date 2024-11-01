@@ -23,6 +23,25 @@ public class UsuarioDAO {
         }
         return con;
     }
+    
+    public String authenticateUserAndGetRole(String nombre, String contraseña) {
+        String sql = "SELECT rol FROM usuarios WHERE nombre = ? AND contraseña = ?";
+        try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, nombre);
+            pstmt.setString(2, contraseña);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getString("rol"); // Devuelve el rol si el usuario y la contraseña coinciden
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al autenticar usuario: " + e.getMessage());
+        }
+        return null; 
+    }
+    
+    
 
     public boolean authenticateUser(String nombre, String contraseña) {
         String sql = "SELECT * FROM usuarios WHERE nombre = ? AND contraseña = ?";
@@ -35,7 +54,7 @@ public class UsuarioDAO {
             return rs.next();
 
         } catch (SQLException e) {
-            System.out.println("Error al autenticar usuario: " + e.getMessage());
+            System.out.println("Error al autenticar usuario: " + e.getMessage()); 
             return false;
         }
     }
@@ -83,5 +102,7 @@ public class UsuarioDAO {
             System.err.println("Error al registrar el usuario: " + e.getMessage());
         }
     }
+    
+    
 
 }
