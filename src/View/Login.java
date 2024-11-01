@@ -209,13 +209,13 @@ String role = userDao.authenticateUserAndGetRole(nombre, contraseña);
 
 if (role != null) {
     if (role.equals("admin")) {
-        new Admin().setVisible(true); // Ventana de administrador
+        new Admin().setVisible(true);
     } else {
-        new inicioo().setVisible(true); // Ventana de usuario normal
+        new inicioo().setVisible(true);
     }
     this.dispose();
 } else {
-    JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta", "Error de Login", JOptionPane.ERROR_MESSAGE);
+    JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta", "intentelo nuevamente", JOptionPane.ERROR_MESSAGE);
 }
 
     }//GEN-LAST:event_BtenterActionPerformed

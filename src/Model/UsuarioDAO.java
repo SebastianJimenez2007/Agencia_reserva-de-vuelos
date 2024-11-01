@@ -83,25 +83,25 @@ public class UsuarioDAO {
         return usuarioList;
     }
 
-    public void RegistrarUsuario(String nombre, String apellidos, String correo, String telefono, LocalDate fechaderegistro) {
-
-        String sql = "INSERT INTO usuarios (identificacion, nombre, apellido, correo_electronico, telefono, fecha_contratacion) VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-        try (Connection con = ConexionDB.conectar(); PreparedStatement pstmt = con.prepareStatement(sql)) {
-
-            pstmt.setString(2, nombre);
-            pstmt.setString(3, apellidos);
-            pstmt.setString(4, correo);
-            pstmt.setString(5, telefono);
-            pstmt.setDate(6, java.sql.Date.valueOf(fechaderegistro));
-
-            pstmt.executeUpdate();
-            System.out.println("Usuario registardo con exito.");
-
-        } catch (SQLException e) {
-            System.err.println("Error al registrar el usuario: " + e.getMessage());
-        }
+    public boolean registrarUsuario(String nombre, String contraseña, String correo, String telefono, String identificacion, String rol) {
+    String sql = "INSERT INTO usuarios (nombre, contraseña, correo, telefono, identificacion, rol) VALUES (?, ?, ?, ?, ?, ?)";
+    
+    try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setString(1, nombre);
+        pstmt.setString(2, contraseña);
+        pstmt.setString(3, correo);
+        pstmt.setString(4, telefono);
+        pstmt.setString(5, identificacion);
+        pstmt.setString(6, rol);
+        
+        int filasInsertadas = pstmt.executeUpdate();
+        
+        return filasInsertadas > 0; // Retorna true si se insertó el usuario correctamente
+    } catch (SQLException e) {
+        System.err.println("Error al registrar el usuario: " + e.getMessage());
+        return false;
     }
+}
     
     
 

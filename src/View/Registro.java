@@ -5,6 +5,7 @@
 package View;
 
 import Model.UsuarioDAO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -88,6 +89,12 @@ public class Registro extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Create new account ");
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
+
+        txtRname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRnameActionPerformed(evt);
+            }
+        });
         jPanel4.add(txtRname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 220, -1));
         jPanel4.add(txtRemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 220, -1));
 
@@ -136,6 +143,12 @@ public class Registro extends javax.swing.JFrame {
 
         jLabel8.setText("identification*");
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+
+        txtRidentificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRidentificacionActionPerformed(evt);
+            }
+        });
         jPanel4.add(txtRidentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 220, -1));
 
         jPanel5.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 350, 410));
@@ -204,17 +217,34 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String name = txtRname.getText();
-        String email = txtRemail.getText();
-        String cell = txtRcellphone.getText();
-        String pass = txtRpass.getText();
-        String confirmpass = txtRconfirmpass.getText();
-        String identificacion = txtRidentificacion.getText();
-        
-        UsuarioDAO userDao = new UsuarioDAO();
+        String nombre = txtRname.getText();
+    String contraseña = new String(txtRpass.getText());
+    String correo = txtRemail.getText();
+    String telefono = txtRcellphone.getText();
+    String identificacion = txtRidentificacion.getText();
+    String rol = "usuario"; // O "admin", dependiendo de lo que quieras asignar al usuario
+
+    UsuarioDAO userDao = new UsuarioDAO();
+    boolean exito = userDao.registrarUsuario(nombre, contraseña, correo, telefono, identificacion, rol);
+
+    if (exito) {
+        JOptionPane.showMessageDialog(this, "Usuario registrado con éxito.", "Registro", JOptionPane.INFORMATION_MESSAGE);
+        // Aquí podrías redirigir a la ventana de inicio o login si deseas
+        this.dispose();
+    } else {
+        JOptionPane.showMessageDialog(this, "Error al registrar el usuario.", "Registro", JOptionPane.ERROR_MESSAGE);
+    }
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtRnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRnameActionPerformed
+
+    private void txtRidentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRidentificacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRidentificacionActionPerformed
 
     /**
      * @param args the command line arguments
