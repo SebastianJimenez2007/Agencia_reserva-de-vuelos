@@ -22,6 +22,7 @@ public class planes extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         if (Sesion.isSesionIniciada()) {
             btnlogin.setVisible(false); 
+           //prueba
         }
         
          
