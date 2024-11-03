@@ -4,6 +4,7 @@
  */
 package Model;
 
+import static Model.ConexionDB.conectar;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -79,5 +80,30 @@ public class VuelosdisponiblesDAO {
         
         return vuelo;
     }
+  
+  public boolean actualizarAsientosDisponibles(int vueloId, int cantidadAsientos) {
+    String sql = "UPDATE vuelosdisponibles SET asientos_disponibles = asientos_disponibles - ? WHERE id = ? AND asientos_disponibles >= ?";
+    boolean actualizado = false;
+
+    try (Connection conn = conectar(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setInt(1, cantidadAsientos);
+        pstmt.setInt(2, vueloId);
+        pstmt.setInt(3, cantidadAsientos);
+
+        int filasActualizadas = pstmt.executeUpdate();
+
+        if (filasActualizadas > 0) {
+            System.out.println("Asientos actualizados correctamente.");
+            actualizado = true;
+        } else {
+            System.out.println("No hay suficientes asientos disponibles.");
+        }
+
+    } catch (SQLException e) {
+        System.err.println("Error al actualizar asientos disponibles: " + e.getMessage());
+    }
+
+    return actualizado;
+}
     
 }
