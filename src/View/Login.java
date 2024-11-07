@@ -47,6 +47,7 @@ public class Login extends javax.swing.JFrame {
         Btenter = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         btsingup = new javax.swing.JToggleButton();
+        jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -162,7 +163,7 @@ public class Login extends javax.swing.JFrame {
                 BtenterActionPerformed(evt);
             }
         });
-        jPanel5.add(Btenter, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 75, -1));
+        jPanel5.add(Btenter, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 75, -1));
 
         jLabel5.setText("Need an acoount?");
         jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 110, -1));
@@ -174,6 +175,14 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanel5.add(btsingup, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 80, 20));
+
+        jButton1.setText("Close");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 300, 400));
 
@@ -224,6 +233,10 @@ if (role != null) {
         new Registro().setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_btsingupActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);   // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -262,6 +275,7 @@ if (role != null) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btenter;
     private javax.swing.JToggleButton btsingup;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

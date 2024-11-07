@@ -195,9 +195,10 @@ public class sistemadepago extends javax.swing.JFrame {
         jPanel2.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(38, 75, 100));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Pagar");
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 100, -1));
+        jButton1.setText("Confirmar y pagar");
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 160, 40));
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 800, 500);
