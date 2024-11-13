@@ -50,9 +50,9 @@ public class Registro extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txtRidentificacion = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
 
@@ -120,7 +120,7 @@ public class Registro extends javax.swing.JFrame {
                 jRadioButton1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
+        jPanel4.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(38, 75, 100));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,7 +130,7 @@ public class Registro extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 150, 30));
+        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 130, 30));
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jButton3.setText("Terminos");
@@ -139,7 +139,7 @@ public class Registro extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, 80, 20));
+        jPanel4.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 80, 20));
 
         jLabel8.setText("identification*");
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
@@ -151,6 +151,15 @@ public class Registro extends javax.swing.JFrame {
         });
         jPanel4.add(txtRidentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 220, -1));
 
+        jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jButton2.setText("Login");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 340, 80, 30));
+
         jPanel5.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 350, 410));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo h final.png"))); // NOI18N
@@ -160,15 +169,6 @@ public class Registro extends javax.swing.JFrame {
         jPanel7.setBackground(new java.awt.Color(38, 75, 100));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 201, 211)));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        jButton2.setText("Login");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, -10, -1, 60));
 
         jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -210,6 +210,7 @@ public class Registro extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
                 new Login().setVisible(true);
+                this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -218,18 +219,19 @@ public class Registro extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nombre = txtRname.getText();
-    String contraseña = new String(txtRpass.getText());
-    String correo = txtRemail.getText();
-    String telefono = txtRcellphone.getText();
-    String identificacion = txtRidentificacion.getText();
-    String rol = "usuario"; // O "admin", dependiendo de lo que quieras asignar al usuario
+        String contraseña = new String(txtRpass.getText());
+        String correo = txtRemail.getText();
+        String telefono = txtRcellphone.getText();
+        String identificacion = txtRidentificacion.getText();
+        String rol = "usuario"; // O "admin", dependiendo de lo que quieras asignar al usuario
 
     UsuarioDAO userDao = new UsuarioDAO();
     boolean exito = userDao.registrarUsuario(nombre, contraseña, correo, telefono, identificacion, rol);
 
     if (exito) {
         JOptionPane.showMessageDialog(this, "Usuario registrado con éxito.", "Registro", JOptionPane.INFORMATION_MESSAGE);
-        // Aquí podrías redirigir a la ventana de inicio o login si deseas
+        new Login().setVisible(true);
+        this.setVisible(false);
         this.dispose();
     } else {
         JOptionPane.showMessageDialog(this, "Error al registrar el usuario.", "Registro", JOptionPane.ERROR_MESSAGE);

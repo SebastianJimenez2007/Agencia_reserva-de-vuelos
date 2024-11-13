@@ -63,6 +63,7 @@ public class vuelosdisponibles extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -182,7 +183,7 @@ public class vuelosdisponibles extends javax.swing.JFrame {
 
         lblDato.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblDato.setText("-------------------");
-        jPanel8.add(lblDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 330, -1));
+        jPanel8.add(lblDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 270, -1));
 
         jButton3.setBackground(new java.awt.Color(54, 90, 108));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
@@ -192,7 +193,7 @@ public class vuelosdisponibles extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 410, 46));
+        jPanel8.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 410, 50));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jPanel8.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 69, -1, -1));
@@ -207,12 +208,16 @@ public class vuelosdisponibles extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
+            .addGap(0, 150, Short.MAX_VALUE)
         );
 
-        jPanel8.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, 280, -1));
+        jPanel8.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, 280, 150));
 
-        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 690, -1));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carga 100 x 100.gif"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        jPanel8.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 100, 90));
+
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 16, 690, 160));
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 840, 320));
 
@@ -245,7 +250,8 @@ public class vuelosdisponibles extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       new planes().setVisible(true); // TODO add your handling code here:
+       new planes().setVisible(true);
+       this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
@@ -303,6 +309,7 @@ public class vuelosdisponibles extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;

@@ -15,6 +15,7 @@ public class sistemadepago extends javax.swing.JFrame {
      */
     public sistemadepago() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -226,7 +227,8 @@ public class sistemadepago extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new inicioo().setVisible(true);       // TODO add your handling code here:
+        new planes().setVisible(true);
+        this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed

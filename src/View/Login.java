@@ -219,8 +219,10 @@ String role = userDao.authenticateUserAndGetRole(nombre, contraseña);
 if (role != null) {
     if (role.equals("admin")) {
         new Admin().setVisible(true);
+        this.setVisible(false);
     } else {
         new inicioo().setVisible(true);
+        this.setVisible(false);
     }
     this.dispose();
 } else {
@@ -230,11 +232,13 @@ if (role != null) {
     }//GEN-LAST:event_BtenterActionPerformed
 
     private void btsingupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsingupActionPerformed
-        new Registro().setVisible(true);// TODO add your handling code here:
+        new Registro().setVisible(true);
+        this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_btsingupActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);   // TODO add your handling code here:
+        new inicioo().setVisible(true);
+        this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -235,6 +235,7 @@ public class inicioo extends javax.swing.JFrame {
          vuelosdisponibles ventanaVuelos = new vuelosdisponibles();
          ventanaVuelos.setDato(origen + "  --->  ︎ " + destino);
          ventanaVuelos.setVisible(true);
+         this.setVisible(false);
          
         
          this.dispose(); 
@@ -258,9 +259,9 @@ public class inicioo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
+         new Login().setVisible(true);
          Sesion.iniciarSesion(); 
-         btnlogin.setVisible(false);
-          new Login().setVisible(true);
+         this.setVisible(false);
           
     }//GEN-LAST:event_btnloginActionPerformed
 
