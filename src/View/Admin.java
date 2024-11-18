@@ -468,7 +468,7 @@ public class Admin extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jp3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 710, 170));
+        jp3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 670, 170));
 
         jButton4.setText("Eliminate");
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
