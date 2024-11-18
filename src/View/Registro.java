@@ -227,13 +227,17 @@ public class Registro extends javax.swing.JFrame {
 
     UsuarioDAO userDao = new UsuarioDAO();
     boolean exito = userDao.registrarUsuario(nombre, contraseña, correo, telefono, identificacion, rol);
-
+    
+    
     if (exito) {
         JOptionPane.showMessageDialog(this, "Usuario registrado con éxito.", "Registro", JOptionPane.INFORMATION_MESSAGE);
         new Login().setVisible(true);
         this.setVisible(false);
         this.dispose();
-    } else {
+    } else if (nombre.isEmpty() || contraseña.isEmpty() || correo.isEmpty() || telefono.isEmpty()|| identificacion == null) {
+        JOptionPane.showMessageDialog(this, "error al registrar usurio, porfavor asegurarse de seleccionar todos los campos requeridos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+         
+    }else {
         JOptionPane.showMessageDialog(this, "Error al registrar el usuario.", "Registro", JOptionPane.ERROR_MESSAGE);
     }
         

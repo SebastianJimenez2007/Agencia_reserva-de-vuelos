@@ -216,7 +216,10 @@ String contraseña = new String(txtpassword.getPassword());
 UsuarioDAO userDao = new UsuarioDAO();
 String role = userDao.authenticateUserAndGetRole(nombre, contraseña);
 
-if (role != null) {
+if (nombre.isEmpty() ||  contraseña == null) {
+        JOptionPane.showMessageDialog(this, "Por favor, seleccione todos los campos requeridos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+         
+    }else if (role != null) {
     if (role.equals("admin")) {
         new Admin().setVisible(true);
         this.setVisible(false);

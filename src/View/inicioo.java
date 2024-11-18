@@ -4,7 +4,7 @@
  */
 package View;
 
-import Model.Sesion;
+
 import Model.Vuelosdisponibles;
 import Model.VuelosdisponiblesDAO;
 import java.util.Calendar;
@@ -26,11 +26,11 @@ public class inicioo extends javax.swing.JFrame {
     public inicioo() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
         fecha_ida.setMinSelectableDate(new Date ());
         fecha_vuelta.setMinSelectableDate(new Date());
         
-         fecha_ida.setMinSelectableDate(new Date());
-        fecha_vuelta.setMinSelectableDate(new Date());
+         
         
         // Listener para la fecha de ida
         fecha_ida.addPropertyChangeListener(evt -> {
@@ -45,10 +45,7 @@ public class inicioo extends javax.swing.JFrame {
                 }
             }
         });
-        
-        if (Sesion.isSesionIniciada()) {
-            btnlogin.setVisible(false); 
-        }
+       
     }
 
     /**
@@ -78,6 +75,8 @@ public class inicioo extends javax.swing.JFrame {
         fecha_ida = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -172,15 +171,25 @@ public class inicioo extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carga 100 x 100.gif"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 190, 100, 100));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 800, 290));
 
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Welcome traveler ");
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, -1));
+
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo h final.png"))); // NOI18N
         jLabel9.setText("jLabel9");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 470));
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 800, 200));
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 800, 230));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -210,14 +219,14 @@ public class inicioo extends javax.swing.JFrame {
        java.util.Date fechaVuelta = fecha_vuelta.getDate();
        
        
-         if (origen.equals("-------") || destino.equals("-------") || Npersonas.equals(" ") || fechaIda == null || fechaVuelta == null) {
+        if (origen.equals("-------") || destino.equals("-------") || Npersonas.equals(" ") || fechaIda == null || fechaVuelta == null) {
         JOptionPane.showMessageDialog(this, "Por favor, seleccione todos los campos requeridos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        return; // Salir del método si hay campos vacíos
+        return; 
     }
          
          if (fechaVuelta.before(fechaIda)) {
-        JOptionPane.showMessageDialog(this, "La fecha de vuelta no puede ser menor que la fecha de ida. Intente de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
-        return; // Salir del método si la fecha de vuelta es incorrecta
+        JOptionPane.showMessageDialog(this, "seleccione una fecha de vuelta valida. Intente de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
     }
        
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
@@ -233,7 +242,7 @@ public class inicioo extends javax.swing.JFrame {
         
        if (!vuelos.isEmpty()) {
          vuelosdisponibles ventanaVuelos = new vuelosdisponibles();
-         ventanaVuelos.setDato(origen + "  --->  ︎ " + destino);
+         ventanaVuelos.setDato(origen + " >>> " + destino);
          ventanaVuelos.setVisible(true);
          this.setVisible(false);
          
@@ -246,7 +255,7 @@ public class inicioo extends javax.swing.JFrame {
 
         if (vueloCercano != null) {
         // Mostrar la fecha más cercana
-        JOptionPane.showMessageDialog(this, "No hay vuelos disponibles para ese dia por el momento pero tenemos otro para: " + vueloCercano.getFechaSalida());
+        JOptionPane.showMessageDialog(this, "No hay vuelos disponibles para la cecha seleccionada. " + "el vuelo mas sercano esta para: " + vueloCercano.getFechaSalida());
          } else {
         // Mostrar mensaje indicando que no hay vuelos disponibles
         JOptionPane.showMessageDialog(this, "No hay vuelos disponibles de " + origen + " a " + destino +" en estos momentos.");
@@ -260,7 +269,7 @@ public class inicioo extends javax.swing.JFrame {
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
          new Login().setVisible(true);
-         Sesion.iniciarSesion(); 
+          
          this.setVisible(false);
           
     }//GEN-LAST:event_btnloginActionPerformed
@@ -319,6 +328,7 @@ public class inicioo extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -329,6 +339,7 @@ public class inicioo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JComboBox<String> txtDestino;
     private javax.swing.JComboBox<String> txtNpersonas;
     private javax.swing.JComboBox<String> txtOrigen;
