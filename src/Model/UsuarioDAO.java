@@ -5,9 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.DriverManager;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class UsuarioDAO {
 
@@ -23,65 +21,83 @@ public class UsuarioDAO {
         }
         return con;
     }
+    
+    public String authenticateUserAndGetRole(String nombre, String contraseña) {
+    String sql = "SELECT id_usuario, rol FROM usuarios WHERE nombre = ? AND contraseña = ?";
+    try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setString(1, nombre);
+        pstmt.setString(2, contraseña);
+        ResultSet rs = pstmt.executeQuery();
 
-    public boolean authenticateUser(String nombre, String contraseña) {
-        String sql = "SELECT * FROM usuarios WHERE nombre = ? AND contraseña = ?";
-        try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        if (rs.next()) {
+            // Obtener el id_usuario y el rol
+            int idUsuario = rs.getInt("id_usuario");
+            String rol = rs.getString("rol");
 
-            pstmt.setString(1, nombre);
-            pstmt.setString(2, contraseña);
-            ResultSet rs = pstmt.executeQuery();
+            // Guardar el id_usuario en la sesión
+            Sesion.setIdUsuario(idUsuario);
 
-            return rs.next();
-
-        } catch (SQLException e) {
-            System.out.println("Error al autenticar usuario: " + e.getMessage());
-            return false;
-        }
-    }
-
-    public List<Usuario> obtenerUsuarios() {
-        List<Usuario> usuarioList = new ArrayList<>();
-        String sql = "SELECT identificacion, nombre, apellido, correo, telefono FROM usuarios";
-
-        try (Connection con = ConexionDB.conectar(); PreparedStatement pstmt = con.prepareStatement(sql); ResultSet rs = pstmt.executeQuery()) {
-
-            while (rs.next()) {
-                String identificacion = rs.getString("identificacion");
-                String nombre = rs.getString("nombre");
-                String apellido = rs.getString("apellido");
-                String correo = rs.getString("correo");
-                String telefono = rs.getString("telefono");
-
-                Usuario usuario = new Usuario(identificacion, nombre, apellido, correo, telefono);
-                usuarioList.add(usuario);
-            }
-
-        } catch (SQLException e) {
-            System.err.println("Error al obtener usuario: " + e.getMessage());
+            // Retornar el rol del usuario
+            return rol;
         }
 
-        return usuarioList;
+    } catch (SQLException e) {
+        System.out.println("Error al autenticar usuario: " + e.getMessage());
     }
+    return null; // Si no se encuentra el usuario, retornar null
+}
+    
+   
 
-    public void RegistrarUsuario(String nombre, String apellidos, String correo, String telefono, LocalDate fechaderegistro) {
+    
 
-        String sql = "INSERT INTO usuarios (identificacion, nombre, apellido, correo_electronico, telefono, fecha_contratacion) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    public boolean registrarUsuario(String nombre, String contraseña, String correo, String telefono, String identificacion, String rol) {
+    String sql = "INSERT INTO usuarios (nombre, contraseña, correo, telefono, identificacion, rol) VALUES (?, ?, ?, ?, ?, ?)";
+    
+    try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setString(1, nombre);
+        pstmt.setString(2, contraseña);
+        pstmt.setString(3, correo);
+        pstmt.setString(4, telefono);
+        pstmt.setString(5, identificacion);
+        pstmt.setString(6, rol);
+        
+        int filasInsertadas = pstmt.executeUpdate();
+        
+        return filasInsertadas > 0; // Retorna true si se insertó el usuario correctamente
+    } catch (SQLException e) {
+        System.err.println("Error al registrar el usuario: " + e.getMessage());
+        return false;
+    }
+}
+    public Usuario obtenerUsuarioPorId(int idUsuario) {
+    String sql = "SELECT id_usuario, nombre, correo, telefono, identificacion, rol FROM usuarios WHERE id_usuario = ?";
+    Usuario usuario = null;
+    
+    try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setInt(1, idUsuario);  // Establecer el ID del usuario en la consulta
+        ResultSet rs = pstmt.executeQuery();
 
-        try (Connection con = ConexionDB.conectar(); PreparedStatement pstmt = con.prepareStatement(sql)) {
-
-            pstmt.setString(2, nombre);
-            pstmt.setString(3, apellidos);
-            pstmt.setString(4, correo);
-            pstmt.setString(5, telefono);
-            pstmt.setDate(6, java.sql.Date.valueOf(fechaderegistro));
-
-            pstmt.executeUpdate();
-            System.out.println("Usuario registardo con exito.");
-
-        } catch (SQLException e) {
-            System.err.println("Error al registrar el usuario: " + e.getMessage());
+        if (rs.next()) {
+            // Crear el objeto Usuario con los datos obtenidos de la base de datos
+            usuario = new Usuario(
+                rs.getInt("id_usuario"),
+                rs.getString("nombre"),
+                rs.getString("correo"),
+                rs.getString("telefono"),
+                rs.getString("identificacion"),
+                rs.getString("rol")
+            );
         }
+    } catch (SQLException e) {
+        System.err.println("Error al obtener el usuario por ID: " + e.getMessage());
     }
+    return usuario;  // Retornar el objeto Usuario o null si no se encuentra
+}
+    
+   
+
+   
+    
 
 }

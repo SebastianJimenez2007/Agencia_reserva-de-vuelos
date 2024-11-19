@@ -1,27 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Model;
 
-/**
- *
- * @author Sebastian JB
- */
 public class Sesion {
-    
-     private static boolean sesionIniciada = false;
+   private static int idUsuario; // Variable estática para almacenar el ID del usuario logueado
+    private static String nombreUsuario; // Variable estática para almacenar el nombre del usuario  
 
-    public static boolean isSesionIniciada() {
-        return sesionIniciada;
+    public static void setIdUsuario(int id) {
+        idUsuario = id;
     }
 
-    public static void iniciarSesion() {
-        sesionIniciada = true;
+    // Método para obtener el ID del usuario logueado
+    public static int getIdUsuario() {
+        return idUsuario;
     }
 
-    public static void cerrarSesion() {
-        sesionIniciada = false;
+    // Método para establecer el nombre del usuario logueado
+    public static void setNombreUsuario(String nombre) {
+        nombreUsuario = nombre;
+    }
+
+    // Método para obtener el nombre del usuario logueado
+    public static String getNombreUsuario() {
+        return nombreUsuario;
     }
     
 }
