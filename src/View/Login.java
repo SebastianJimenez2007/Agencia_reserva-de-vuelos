@@ -210,26 +210,32 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtenterActionPerformed
-      String nombre = txtemail.getText();
+String nombre = txtemail.getText();
 String contraseña = new String(txtpassword.getPassword());
-
 UsuarioDAO userDao = new UsuarioDAO();
+
+
 String role = userDao.authenticateUserAndGetRole(nombre, contraseña);
 
-if (nombre.isEmpty() ||  contraseña == null) {
-        JOptionPane.showMessageDialog(this, "Por favor, seleccione todos los campos requeridos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-         
-    }else if (role != null) {
+
+if (nombre.isEmpty() || contraseña.isEmpty()) {
+    
+    JOptionPane.showMessageDialog(this, "Por favor, seleccione todos los campos requeridos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+    
+} else if (role != null) {
+    
     if (role.equals("admin")) {
         new Admin().setVisible(true);
-        this.setVisible(false);
+        this.setVisible(false); 
+        
     } else {
         new inicioo().setVisible(true);
-        this.setVisible(false);
+        this.setVisible(false);  
     }
-    this.dispose();
+    this.dispose();  
 } else {
-    JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta", "intentelo nuevamente", JOptionPane.ERROR_MESSAGE);
+    
+    JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta", "Intentelo nuevamente", JOptionPane.ERROR_MESSAGE);
 }
 
     }//GEN-LAST:event_BtenterActionPerformed
