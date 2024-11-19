@@ -5,6 +5,9 @@
 package View;
 
 
+import Model.Sesion;
+import Model.Usuario;
+import Model.UsuarioDAO;
 import javax.swing.*;
 /**
  *
@@ -19,7 +22,26 @@ public class sistemadepago extends javax.swing.JFrame {
         
         initComponents();
         this.setLocationRelativeTo(null);
+        cargarDatosUsuario();
         
+    }
+    private void cargarDatosUsuario() {
+        int idUsuario = Sesion.getIdUsuario(); // Obtener el id_usuario desde la sesión
+
+        // Obtener el usuario de la base de datos usando el id_usuario
+        UsuarioDAO userDao = new UsuarioDAO();
+        Usuario usuario = userDao.obtenerUsuarioPorId(idUsuario);
+
+        if (usuario != null) {
+            // Asignar los datos del usuario a los campos del formulario
+            txtnombre.setText(usuario.getNombre());
+            txtcorreo.setText(usuario.getCorreo());
+            txttel.setText(usuario.getTelefono());
+            txtid.setText(usuario.getIdentificacion());
+            
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontraron los datos del usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -40,7 +62,6 @@ public class sistemadepago extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -57,8 +78,7 @@ public class sistemadepago extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
-        txtname = new javax.swing.JTextField();
-        txtlastname = new javax.swing.JTextField();
+        txtnombre = new javax.swing.JTextField();
         txtid = new javax.swing.JTextField();
         txtcorreo = new javax.swing.JTextField();
         txtconfcorreo = new javax.swing.JTextField();
@@ -99,11 +119,6 @@ public class sistemadepago extends javax.swing.JFrame {
         jLabel7.setText("Nombre *");
         jLabel7.setPreferredSize(new java.awt.Dimension(58, 20));
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 70, -1));
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel12.setText("Apellido *");
-        jLabel12.setPreferredSize(new java.awt.Dimension(58, 20));
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 70, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setText("Fecha de nacimiento *");
@@ -189,16 +204,15 @@ public class sistemadepago extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, 160, 40));
-        jPanel2.add(txtname, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 160, 30));
-
-        txtlastname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtlastnameActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtlastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 160, 30));
+        jPanel2.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 160, 30));
         jPanel2.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 160, 30));
         jPanel2.add(txtcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 160, 30));
+
+        txtconfcorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtconfcorreoActionPerformed(evt);
+            }
+        });
         jPanel2.add(txtconfcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 160, 30));
 
         jPanel1.add(jPanel2);
@@ -235,27 +249,29 @@ public class sistemadepago extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
-    private void txtlastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlastnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtlastnameActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       String Nombre =  txtname.getText();
-       String apellido =  txtlastname.getText();
+       String Nombre =  txtnombre.getText();
        String identificacion = txtid.getText();
        String celular = (String) txtcorreo.getText();
        String id = (String) selectid.getSelectedItem();
        
-       if (Nombre.isEmpty() || apellido.isEmpty() || identificacion.isEmpty() || celular.isEmpty()|| id == null) {
+       if (Nombre.isEmpty() || identificacion.isEmpty() || celular.isEmpty()|| id == null) {
         JOptionPane.showMessageDialog(this, "Por favor, seleccione todos los campos requeridos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
          
-    }else{
+    }else if(txtcorreo == txtconfcorreo){
+        JOptionPane.showMessageDialog(this, "Por favor. confirme su direccion de correo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+    }
+       
            
-       }
+       
       
 
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtconfcorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtconfcorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtconfcorreoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,7 +316,6 @@ public class sistemadepago extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -322,8 +337,7 @@ public class sistemadepago extends javax.swing.JFrame {
     private javax.swing.JTextField txtconfcorreo;
     private javax.swing.JTextField txtcorreo;
     private javax.swing.JTextField txtid;
-    private javax.swing.JTextField txtlastname;
-    private javax.swing.JTextField txtname;
+    private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txttel;
     // End of variables declaration//GEN-END:variables
 }

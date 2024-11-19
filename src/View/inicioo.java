@@ -73,8 +73,8 @@ public class inicioo extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         fecha_vuelta = new com.toedter.calendar.JDateChooser();
         fecha_ida = new com.toedter.calendar.JDateChooser();
-        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -113,19 +113,19 @@ public class inicioo extends javax.swing.JFrame {
                 txtOrigenActionPerformed(evt);
             }
         });
-        jPanel3.add(txtOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        jPanel3.add(txtOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         txtDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------", "Bogota", "Cartagena", "Medellin", " " }));
-        jPanel3.add(txtDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, -1));
+        jPanel3.add(txtDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
 
         jLabel4.setText("Origen");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
         jLabel5.setText("Destino");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, -1, -1));
 
         jLabel6.setText("Fecha vuelta");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, 20));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, -1, 20));
 
         txtNpersonas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", " " }));
         txtNpersonas.addActionListener(new java.awt.event.ActionListener() {
@@ -133,10 +133,10 @@ public class inicioo extends javax.swing.JFrame {
                 txtNpersonasActionPerformed(evt);
             }
         });
-        jPanel3.add(txtNpersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 50, -1));
+        jPanel3.add(txtNpersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 50, -1));
 
         jLabel8.setText("N_person");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 60, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 60, -1));
 
         jButton2.setBackground(new java.awt.Color(38, 75, 100));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,17 +146,17 @@ public class inicioo extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 90, 40));
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 90, 40));
 
         jLabel10.setText("Fecha de ida");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 90, 20));
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 90, 20));
 
         fecha_vuelta.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 fecha_vueltaPropertyChange(evt);
             }
         });
-        jPanel3.add(fecha_vuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 100, -1));
+        jPanel3.add(fecha_vuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 100, -1));
 
         fecha_ida.setMinSelectableDate(new java.util.Date(-62135747891000L));
         fecha_ida.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -164,26 +164,25 @@ public class inicioo extends javax.swing.JFrame {
                 fecha_idaPropertyChange(evt);
             }
         });
-        jPanel3.add(fecha_ida, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 100, -1));
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 680, 220));
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.add(fecha_ida, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 100, -1));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carga 100 x 100.gif"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 190, 100, 100));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 100, 90));
 
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 680, 210));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 800, 290));
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Welcome traveler ");
-        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, -1));
+        jLabel2.setText("where are you planning to travel today? ");
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo h final.png"))); // NOI18N
         jLabel9.setText("jLabel9");

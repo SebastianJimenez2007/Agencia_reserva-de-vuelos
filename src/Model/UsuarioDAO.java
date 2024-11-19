@@ -5,9 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.DriverManager;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class UsuarioDAO {
 
@@ -25,63 +23,33 @@ public class UsuarioDAO {
     }
     
     public String authenticateUserAndGetRole(String nombre, String contraseña) {
-        String sql = "SELECT rol FROM usuarios WHERE nombre = ? AND contraseña = ?";
-        try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, nombre);
-            pstmt.setString(2, contraseña);
-            ResultSet rs = pstmt.executeQuery();
+    String sql = "SELECT id_usuario, rol FROM usuarios WHERE nombre = ? AND contraseña = ?";
+    try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setString(1, nombre);
+        pstmt.setString(2, contraseña);
+        ResultSet rs = pstmt.executeQuery();
 
-            if (rs.next()) {
-                return rs.getString("rol"); // Devuelve el rol si el usuario y la contraseña coinciden
-            }
+        if (rs.next()) {
+            // Obtener el id_usuario y el rol
+            int idUsuario = rs.getInt("id_usuario");
+            String rol = rs.getString("rol");
 
-        } catch (SQLException e) {
-            System.out.println("Error al autenticar usuario: " + e.getMessage());
+            // Guardar el id_usuario en la sesión
+            Sesion.setIdUsuario(idUsuario);
+
+            // Retornar el rol del usuario
+            return rol;
         }
-        return null; 
+
+    } catch (SQLException e) {
+        System.out.println("Error al autenticar usuario: " + e.getMessage());
     }
+    return null; // Si no se encuentra el usuario, retornar null
+}
     
+   
+
     
-
-    public boolean authenticateUser(String nombre, String contraseña) {
-        String sql = "SELECT * FROM usuarios WHERE nombre = ? AND contraseña = ?";
-        try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setString(1, nombre);
-            pstmt.setString(2, contraseña);
-            ResultSet rs = pstmt.executeQuery();
-
-            return rs.next();
-
-        } catch (SQLException e) {
-            System.out.println("Error al autenticar usuario: " + e.getMessage()); 
-            return false;
-        }
-    }
-
-    public List<Usuario> obtenerUsuarios() {
-        List<Usuario> usuarioList = new ArrayList<>();
-        String sql = "SELECT identificacion, nombre, apellido, correo, telefono FROM usuarios";
-
-        try (Connection con = ConexionDB.conectar(); PreparedStatement pstmt = con.prepareStatement(sql); ResultSet rs = pstmt.executeQuery()) {
-
-            while (rs.next()) {
-                String identificacion = rs.getString("identificacion");
-                String nombre = rs.getString("nombre");
-                String apellido = rs.getString("apellido");
-                String correo = rs.getString("correo");
-                String telefono = rs.getString("telefono");
-
-                Usuario usuario = new Usuario(identificacion, nombre, apellido, correo, telefono);
-                usuarioList.add(usuario);
-            }
-
-        } catch (SQLException e) {
-            System.err.println("Error al obtener usuario: " + e.getMessage());
-        }
-
-        return usuarioList;
-    }
 
     public boolean registrarUsuario(String nombre, String contraseña, String correo, String telefono, String identificacion, String rol) {
     String sql = "INSERT INTO usuarios (nombre, contraseña, correo, telefono, identificacion, rol) VALUES (?, ?, ?, ?, ?, ?)";
@@ -102,7 +70,34 @@ public class UsuarioDAO {
         return false;
     }
 }
+    public Usuario obtenerUsuarioPorId(int idUsuario) {
+    String sql = "SELECT id_usuario, nombre, correo, telefono, identificacion, rol FROM usuarios WHERE id_usuario = ?";
+    Usuario usuario = null;
     
+    try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setInt(1, idUsuario);  // Establecer el ID del usuario en la consulta
+        ResultSet rs = pstmt.executeQuery();
+
+        if (rs.next()) {
+            // Crear el objeto Usuario con los datos obtenidos de la base de datos
+            usuario = new Usuario(
+                rs.getInt("id_usuario"),
+                rs.getString("nombre"),
+                rs.getString("correo"),
+                rs.getString("telefono"),
+                rs.getString("identificacion"),
+                rs.getString("rol")
+            );
+        }
+    } catch (SQLException e) {
+        System.err.println("Error al obtener el usuario por ID: " + e.getMessage());
+    }
+    return usuario;  // Retornar el objeto Usuario o null si no se encuentra
+}
+    
+   
+
+   
     
 
 }
