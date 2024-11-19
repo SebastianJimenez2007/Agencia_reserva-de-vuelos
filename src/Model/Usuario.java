@@ -8,17 +8,15 @@ package Model;
 public class Usuario {
    private int idUsuario;
     private String nombre;
-    private String apellido;  // Nuevo campo
     private String correo;
     private String telefono;
     private String identificacion;
     private String rol;
 
     // Constructor modificado
-    public Usuario(int idUsuario, String nombre, String apellido, String correo, String telefono, String identificacion) {
+    public Usuario(int idUsuario, String nombre, String correo, String telefono, String identificacion, String string4) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
-        this.apellido = apellido;  // Asignar el valor del apellido
         this.correo = correo;
         this.telefono = telefono;
         this.identificacion = identificacion;
@@ -42,13 +40,6 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
 
     public String getCorreo() {
         return correo;
