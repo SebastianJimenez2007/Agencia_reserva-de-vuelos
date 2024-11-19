@@ -15,6 +15,7 @@ public class sistemadepago extends javax.swing.JFrame {
      */
     public sistemadepago() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -57,6 +58,7 @@ public class sistemadepago extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -166,8 +168,8 @@ public class sistemadepago extends javax.swing.JFrame {
         jPanel2.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 50, 20));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel10.setText("Persona 1");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 140, -1));
+        jLabel10.setText("Datos personales");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 220, -1));
 
         jRadioButton1.setText("Transferencia");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -192,6 +194,12 @@ public class sistemadepago extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, -1, -1));
+
+        jButton1.setBackground(new java.awt.Color(38, 75, 100));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Confirmar y pagar");
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 160, 40));
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 800, 500);
@@ -219,7 +227,8 @@ public class sistemadepago extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new inicioo().setVisible(true);       // TODO add your handling code here:
+        new planes().setVisible(true);
+        this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -271,6 +280,7 @@ public class sistemadepago extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
