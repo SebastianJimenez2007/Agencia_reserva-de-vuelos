@@ -38,8 +38,6 @@ public class planes extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        btnlogin = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -48,10 +46,12 @@ public class planes extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("PLANES DE VUELO");
@@ -77,21 +77,7 @@ public class planes extends javax.swing.JFrame {
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -10, 70, 60));
 
-        btnlogin.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        btnlogin.setText("Login");
-        btnlogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnloginActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, -10, 60, 60));
-
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 40));
-
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Plans");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(255, 204, 0));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
@@ -100,12 +86,12 @@ public class planes extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Normal class");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("100.000");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 130, -1));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 130, 40));
 
         jButton5.setText("Get plan");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -124,12 +110,12 @@ public class planes extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Normal class");
-        jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("100.000");
-        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 130, -1));
+        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 130, 40));
 
         jButton6.setText("Get plan");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +124,10 @@ public class planes extends javax.swing.JFrame {
             }
         });
         jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 200, 60));
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("jLabel1");
+        jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 200, 290));
 
@@ -148,12 +138,12 @@ public class planes extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Normal class");
-        jPanel7.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        jPanel7.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("100.000");
-        jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 130, -1));
+        jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 130, 40));
 
         jButton7.setText("Get plan");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -165,6 +155,10 @@ public class planes extends javax.swing.JFrame {
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 200, 290));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/macos-monterey-stock-red-light-layers-5k-6016x6016-5897.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-400, -970, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -175,25 +169,19 @@ public class planes extends javax.swing.JFrame {
          this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
-        
-        
-        new Login().setVisible(true);
-    }//GEN-LAST:event_btnloginActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-                         new sistemadepago().setVisible(true);
-
+    new sistemadepago().setVisible(true);
+    this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-                         new sistemadepago().setVisible(true);
-
+    new sistemadepago().setVisible(true);
+    this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-                        new sistemadepago().setVisible(true);
-
+    new sistemadepago().setVisible(true);
+    this.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
@@ -232,7 +220,6 @@ public class planes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnlogin;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -241,6 +228,7 @@ public class planes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;

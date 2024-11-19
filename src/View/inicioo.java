@@ -59,8 +59,8 @@ public class inicioo extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        btnlogin = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         txtOrigen = new javax.swing.JComboBox<>();
         txtDestino = new javax.swing.JComboBox<>();
@@ -87,19 +87,18 @@ public class inicioo extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 201, 211)));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnlogin.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        btnlogin.setText("Login");
-        btnlogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnloginActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, -10, -1, 60));
-
         jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("NOESAVIANCA");
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 100, 20));
+
+        jButton4.setText("Log out");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 80, 60));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
@@ -171,7 +170,7 @@ public class inicioo extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 100, 90));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 680, 210));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 660, 210));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -182,7 +181,7 @@ public class inicioo extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("where are you planning to travel today? ");
-        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo h final.png"))); // NOI18N
         jLabel9.setText("jLabel9");
@@ -266,13 +265,6 @@ public class inicioo extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
-         new Login().setVisible(true);
-          
-         this.setVisible(false);
-          
-    }//GEN-LAST:event_btnloginActionPerformed
-
     private void fecha_idaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha_idaPropertyChange
    // TODO add your handling code here:
     }//GEN-LAST:event_fecha_idaPropertyChange
@@ -284,6 +276,11 @@ public class inicioo extends javax.swing.JFrame {
     private void fecha_vueltaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha_vueltaPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_fecha_vueltaPropertyChange
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        new Login().setVisible(true);
+        this.setVisible(false);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,10 +318,10 @@ public class inicioo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnlogin;
     private com.toedter.calendar.JDateChooser fecha_ida;
     private com.toedter.calendar.JDateChooser fecha_vuelta;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

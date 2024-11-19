@@ -56,7 +56,6 @@ public class Registro extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
 
         jCheckBox1.setText("jCheckBox1");
 
@@ -178,14 +177,6 @@ public class Registro extends javax.swing.JFrame {
         jLabel7.setText("NOESAVIANCA");
         jPanel7.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 100, 20));
 
-        jButton4.setText(" ⭠");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -10, 70, 60));
-
         jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 810, 40));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 810, 520));
@@ -202,10 +193,6 @@ public class Registro extends javax.swing.JFrame {
     private void txtRcellphoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRcellphoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRcellphoneActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new inicioo().setVisible(true);       // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
                 new Login().setVisible(true);
@@ -298,7 +285,6 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JButton btncrearcuenta;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;

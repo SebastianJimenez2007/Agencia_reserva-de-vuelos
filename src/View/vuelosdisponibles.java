@@ -44,7 +44,6 @@ public class vuelosdisponibles extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btnlogin = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
@@ -60,8 +59,6 @@ public class vuelosdisponibles extends javax.swing.JFrame {
         lblDato = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -76,15 +73,6 @@ public class vuelosdisponibles extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(54, 90, 108));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnlogin.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        btnlogin.setText("Login");
-        btnlogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnloginActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, -10, 60, 60));
 
         jButton1.setText(" ⭠");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -182,7 +170,7 @@ public class vuelosdisponibles extends javax.swing.JFrame {
 
         lblDato.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 36)); // NOI18N
         lblDato.setText("--------------------------");
-        jPanel8.add(lblDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 340, -1));
+        jPanel8.add(lblDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 340, -1));
 
         jButton3.setBackground(new java.awt.Color(54, 90, 108));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
@@ -192,20 +180,12 @@ public class vuelosdisponibles extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 700, 50));
+        jPanel8.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 700, 50));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jPanel8.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 69, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carga 100 x 100.gif"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        jPanel8.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 100, 90));
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen_2024-11-13_122857479.png"))); // NOI18N
-        jLabel8.setText("jLabel8");
-        jPanel8.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 270, 150));
-
-        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 700, 210));
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 700, 150));
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 800, 310));
 
@@ -246,12 +226,6 @@ public class vuelosdisponibles extends javax.swing.JFrame {
        this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
- 
-         btnlogin.setVisible(false);      
-        new Login().setVisible(true);
-    }//GEN-LAST:event_btnloginActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -289,7 +263,6 @@ public class vuelosdisponibles extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnlogin;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton9;
@@ -301,11 +274,9 @@ public class vuelosdisponibles extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel16;
