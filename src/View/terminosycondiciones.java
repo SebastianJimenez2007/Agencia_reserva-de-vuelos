@@ -15,6 +15,7 @@ public class terminosycondiciones extends javax.swing.JFrame {
      */
     public terminosycondiciones() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -85,7 +86,12 @@ public class terminosycondiciones extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(54, 90, 108));
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Acept");
-        jPanel4.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 90, 30));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 90, 30));
 
         jScrollPane2.setViewportView(jPanel4);
 
@@ -104,12 +110,20 @@ public class terminosycondiciones extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new inicioo().setVisible(true);       // TODO add your handling code here:
+        
+        new inicioo().setVisible(true);
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        new Registro().setVisible(true);
+        this.setVisible(false);
+   // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -19,6 +19,7 @@ public class Registro extends javax.swing.JFrame {
     public Registro() {
         initComponents();
         this.setLocationRelativeTo(null);
+        btncrearcuenta.setEnabled(false);
 
     }
 
@@ -31,6 +32,7 @@ public class Registro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCheckBox1 = new javax.swing.JCheckBox();
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -45,16 +47,17 @@ public class Registro extends javax.swing.JFrame {
         txtRcellphone = new javax.swing.JTextField();
         txtRpass = new javax.swing.JTextField();
         txtRconfirmpass = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        btncrearcuenta = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txtRidentificacion = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        jCheckBox2 = new javax.swing.JCheckBox();
         jLabel9 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+
+        jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("REGISTRO\n");
@@ -113,24 +116,15 @@ public class Registro extends javax.swing.JFrame {
         jPanel4.add(txtRpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 220, -1));
         jPanel4.add(txtRconfirmpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 220, -1));
 
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jRadioButton1.setText("Estoy de acuerdo con los");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        btncrearcuenta.setBackground(new java.awt.Color(38, 75, 100));
+        btncrearcuenta.setForeground(new java.awt.Color(255, 255, 255));
+        btncrearcuenta.setText("Create account");
+        btncrearcuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                btncrearcuentaActionPerformed(evt);
             }
         });
-        jPanel4.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, -1, -1));
-
-        jButton1.setBackground(new java.awt.Color(38, 75, 100));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Create account");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 130, 30));
+        jPanel4.add(btncrearcuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 130, 30));
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jButton3.setText("Terminos");
@@ -160,6 +154,14 @@ public class Registro extends javax.swing.JFrame {
         });
         jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 340, 80, 30));
 
+        jCheckBox2.setText("Acepto todos los ");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, -1, -1));
+
         jPanel5.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 350, 410));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo h final.png"))); // NOI18N
@@ -174,14 +176,6 @@ public class Registro extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("NOESAVIANCA");
         jPanel7.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 100, 20));
-
-        jButton4.setText(" ⭠");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -10, 70, 60));
 
         jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 810, 40));
 
@@ -200,14 +194,6 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRcellphoneActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new inicioo().setVisible(true);       // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
                 new Login().setVisible(true);
                 this.setVisible(false);
@@ -217,7 +203,7 @@ public class Registro extends javax.swing.JFrame {
         new terminosycondiciones().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btncrearcuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncrearcuentaActionPerformed
         String nombre = txtRname.getText();
         String contraseña = new String(txtRpass.getText());
         String correo = txtRemail.getText();
@@ -227,18 +213,22 @@ public class Registro extends javax.swing.JFrame {
 
     UsuarioDAO userDao = new UsuarioDAO();
     boolean exito = userDao.registrarUsuario(nombre, contraseña, correo, telefono, identificacion, rol);
-
+    
+    
     if (exito) {
         JOptionPane.showMessageDialog(this, "Usuario registrado con éxito.", "Registro", JOptionPane.INFORMATION_MESSAGE);
         new Login().setVisible(true);
         this.setVisible(false);
         this.dispose();
-    } else {
+    } else if (nombre.isEmpty() || contraseña.isEmpty() || correo.isEmpty() || telefono.isEmpty()|| identificacion == null) {
+        JOptionPane.showMessageDialog(this, "error al registrar usurio, porfavor asegurarse de seleccionar todos los campos requeridos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+         
+    }else {
         JOptionPane.showMessageDialog(this, "Error al registrar el usuario.", "Registro", JOptionPane.ERROR_MESSAGE);
     }
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btncrearcuentaActionPerformed
 
     private void txtRnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRnameActionPerformed
         // TODO add your handling code here:
@@ -247,6 +237,14 @@ public class Registro extends javax.swing.JFrame {
     private void txtRidentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRidentificacionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRidentificacionActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+         if (jCheckBox2.isSelected()) {
+                btncrearcuenta.setEnabled(true);  // Habilitar el botón si está seleccionado
+            } else {
+                btncrearcuenta.setEnabled(false);  // Deshabilitar el botón si no está seleccionado
+            }
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,10 +282,11 @@ public class Registro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btncrearcuenta;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -301,7 +300,6 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JTextField txtRcellphone;
     private javax.swing.JTextField txtRconfirmpass;
     private javax.swing.JTextField txtRemail;
