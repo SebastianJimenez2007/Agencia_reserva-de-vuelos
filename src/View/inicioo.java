@@ -99,7 +99,7 @@ public class inicioo extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 80, 60));
+        jPanel4.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 90, 60));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
@@ -115,7 +115,7 @@ public class inicioo extends javax.swing.JFrame {
         });
         jPanel3.add(txtOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
-        txtDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------", "Bogota", "Cartagena", "Medellin", " " }));
+        txtDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------", "Cartagena", "Medellin", "Bogota", " " }));
         jPanel3.add(txtDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
 
         jLabel4.setText("Origen");

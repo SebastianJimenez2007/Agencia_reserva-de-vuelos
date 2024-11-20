@@ -109,7 +109,7 @@ public class sistemadepago extends javax.swing.JFrame {
         jTextField4.setText("AAAA");
         jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 50, 20));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elegir", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "------", "Men", "Woman" }));
         jComboBox2.setPreferredSize(new java.awt.Dimension(64, 22));
         jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 70, 20));
 
