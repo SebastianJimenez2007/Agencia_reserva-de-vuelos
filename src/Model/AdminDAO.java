@@ -36,6 +36,21 @@ public class AdminDAO {
             return false; // Retorna false si ocurrió un error
         }
     }
+    
+    public boolean eliminarVuelo(int idVuelo) {
+    String sql = "DELETE FROM vuelosdisponibles WHERE id = ?"; // Ajusta el nombre de la columna 'id_vuelo' según tu base de datos
+    
+    try (PreparedStatement statement = connection.prepareStatement(sql)) {
+        statement.setInt(1, idVuelo); // Establece el ID del vuelo a eliminar
+        
+        int rowsDeleted = statement.executeUpdate(); // Ejecuta la eliminación
+        return rowsDeleted > 0; // Retorna true si se eliminó al menos un registro
+        
+    } catch (SQLException e) {
+        System.out.println("Error al eliminar el vuelo: " + e.getMessage());
+        return false; // Retorna false si ocurrió un error
+    }
+}
 }
 
     

@@ -84,6 +84,7 @@ public class Admin extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
+        txtIdVuelo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -175,8 +176,9 @@ public class Admin extends javax.swing.JFrame {
         tab2Layout.setHorizontalGroup(
             tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab2Layout.createSequentialGroup()
-                .addGap(0, 10, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(10, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
         tab2Layout.setVerticalGroup(
             tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,8 +207,9 @@ public class Admin extends javax.swing.JFrame {
         tab3Layout.setHorizontalGroup(
             tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab3Layout.createSequentialGroup()
-                .addGap(0, 10, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(10, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
         tab3Layout.setVerticalGroup(
             tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -451,11 +454,17 @@ public class Admin extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jp3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 670, 170));
+        jp3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 670, 170));
 
         jButton4.setText("Eliminate");
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jp3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jp3.add(txtIdVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 120, -1));
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
@@ -518,15 +527,6 @@ public class Admin extends javax.swing.JFrame {
          tab3.setBackground(new Color (38,75,100));
 
     }//GEN-LAST:event_tab1MouseClicked
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        jp1.setVisible(false);
-        jp2.setVisible(true);
-        jp3.setVisible(false);
-         tab2.setBackground(Color.gray);
-        tab1.setBackground(new Color (38,75,100));
-         tab3.setBackground(new Color (38,75,100));
-    }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         jp1.setVisible(false);
@@ -600,14 +600,6 @@ public class Admin extends javax.swing.JFrame {
 } 
     }//GEN-LAST:event_btnagregarvieloActionPerformed
 
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox4ActionPerformed
-
-    private void fecha_ida1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha_ida1PropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fecha_ida1PropertyChange
-
     private void origennActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_origennActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_origennActionPerformed
@@ -615,6 +607,50 @@ public class Admin extends javax.swing.JFrame {
     private void fecha_ida2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha_ida2PropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_fecha_ida2PropertyChange
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        jp1.setVisible(false);
+        jp2.setVisible(true);
+        jp3.setVisible(false);
+        tab2.setBackground(Color.gray);
+        tab1.setBackground(new Color (38,75,100));
+        tab3.setBackground(new Color (38,75,100));
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void fecha_ida1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha_ida1PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fecha_ida1PropertyChange
+
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+      String idVueloStr = txtIdVuelo.getText(); // Supongamos que el ID está en un JTextField llamado txtIdVuelo
+
+    if (idVueloStr.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Por favor, ingrese el ID del vuelo a eliminar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    try {
+        int idVuelo = Integer.parseInt(idVueloStr.trim()); // Convertir a entero
+        try (Connection connection = ConexionDB.conectar()) {
+            AdminDAO adminDAO = new AdminDAO(connection);
+
+            if (adminDAO.eliminarVuelo(idVuelo)) {
+                JOptionPane.showMessageDialog(this, "Vuelo eliminado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "No se encontró un vuelo con ese ID.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al conectar con la base de datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "El ID debe ser un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -711,6 +747,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel tab1;
     private javax.swing.JPanel tab2;
     private javax.swing.JPanel tab3;
+    private javax.swing.JTextField txtIdVuelo;
     // End of variables declaration//GEN-END:variables
 
 }
