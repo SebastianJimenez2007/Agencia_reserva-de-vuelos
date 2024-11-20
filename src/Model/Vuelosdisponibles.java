@@ -16,6 +16,8 @@ public class Vuelosdisponibles {
     private String fechaSalida;
     private String fechaVuelta;
     private int asientosDisponibles;
+     private String horaSalida;      
+    private String horaLlegada;
 
     // Constructor vacío
     public Vuelosdisponibles() {
@@ -23,16 +25,18 @@ public class Vuelosdisponibles {
     }
 
     // Constructor con parámetros
-    public Vuelosdisponibles(int id, String origen, String destino, String fechaSalida, String fechaVuelta, int asientosDisponibles) {
+
+    public Vuelosdisponibles(int id, String origen, String destino, String fechaSalida, String fechaVuelta, int asientosDisponibles, String horaSalida, String horaLlegada) {
         this.id = id;
         this.origen = origen;
         this.destino = destino;
         this.fechaSalida = fechaSalida;
         this.fechaVuelta = fechaVuelta;
         this.asientosDisponibles = asientosDisponibles;
+        this.horaSalida = horaSalida;
+        this.horaLlegada = horaLlegada;
     }
 
-    // Getters y Setters
     public int getId() {
         return id;
     }
@@ -80,5 +84,21 @@ public class Vuelosdisponibles {
     public void setAsientosDisponibles(int asientosDisponibles) {
         this.asientosDisponibles = asientosDisponibles;
     }
-}
+
+    public String getHoraSalida() {
+        return horaSalida;
+    }
+
+    public void setHoraSalida(String horaSalida) {
+        this.horaSalida = horaSalida;
+    }
+
+    public String getHoraLlegada() {
+        return horaLlegada;
+    }
+
+    public void setHoraLlegada(String horaLlegada) {
+        this.horaLlegada = horaLlegada;
+    }
     
+}

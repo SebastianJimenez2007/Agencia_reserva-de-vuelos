@@ -177,9 +177,6 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\SADIR CUADRO\Pictures\agregar.png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value=" Add"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -230,9 +227,6 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\SADIR CUADRO\Pictures\archivo-de-edicion.png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Modify"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -280,9 +274,6 @@
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\SADIR CUADRO\Pictures\circulo-cruzado.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Eliminate"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -364,9 +355,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="24" style="3"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\SADIR CUADRO\Pictures\avion.png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value=" Flights"/>
                   </Properties>
                   <Constraints>
@@ -375,7 +363,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="btnagregarvielo">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="3"/>
@@ -386,9 +374,9 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
-                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MousePressed"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnagregarvieloMouseClicked"/>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnagregarvieloMousePressed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnagregarvieloActionPerformed"/>
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -474,7 +462,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox1">
+                <Component class="javax.swing.JComboBox" name="Origin">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="3">
@@ -488,7 +476,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OriginActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -512,7 +500,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox2">
+                <Component class="javax.swing.JComboBox" name="destino">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="2">
@@ -546,21 +534,21 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+                <Component class="com.toedter.calendar.JDateChooser" name="fechaida">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="110" width="110" height="30"/>
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="fecha_ida">
+                <Component class="com.toedter.calendar.JDateChooser" name="fechregreso">
                   <Properties>
                     <Property name="minSelectableDate" type="java.util.Date" editor="org.netbeans.beaninfo.editors.DateEditor">
                       <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,117,116,105,108,46,68,97,116,101,104,106,-127,1,75,89,116,25,3,0,0,120,112,119,8,-1,-1,-57,124,-28,-47,-80,-56,120"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="fecha_idaPropertyChange"/>
+                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="fechregresoPropertyChange"/>
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -594,7 +582,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox3">
+                <Component class="javax.swing.JComboBox" name="numeroasientos">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="100">
@@ -648,56 +636,56 @@
                         <StringItem index="47" value="48  "/>
                         <StringItem index="48" value="49  "/>
                         <StringItem index="49" value="50  "/>
-                        <StringItem index="50" value="51  "/>
-                        <StringItem index="51" value="52  "/>
-                        <StringItem index="52" value="53  "/>
-                        <StringItem index="53" value="54  "/>
-                        <StringItem index="54" value="55  "/>
-                        <StringItem index="55" value="56  "/>
-                        <StringItem index="56" value="57  "/>
-                        <StringItem index="57" value="58  "/>
-                        <StringItem index="58" value="59  "/>
-                        <StringItem index="59" value="60  "/>
-                        <StringItem index="60" value="61  "/>
-                        <StringItem index="61" value="62  "/>
-                        <StringItem index="62" value="63  "/>
-                        <StringItem index="63" value="64  "/>
-                        <StringItem index="64" value="65  "/>
-                        <StringItem index="65" value="66  "/>
-                        <StringItem index="66" value="67  "/>
-                        <StringItem index="67" value="68  "/>
-                        <StringItem index="68" value="69  "/>
-                        <StringItem index="69" value="70  "/>
-                        <StringItem index="70" value="71  "/>
-                        <StringItem index="71" value="72  "/>
-                        <StringItem index="72" value="73  "/>
-                        <StringItem index="73" value="74  "/>
-                        <StringItem index="74" value="75  "/>
-                        <StringItem index="75" value="76  "/>
-                        <StringItem index="76" value="77  "/>
-                        <StringItem index="77" value="78  "/>
-                        <StringItem index="78" value="79  "/>
-                        <StringItem index="79" value="80  "/>
-                        <StringItem index="80" value="81  "/>
-                        <StringItem index="81" value="82  "/>
-                        <StringItem index="82" value="83  "/>
-                        <StringItem index="83" value="84  "/>
-                        <StringItem index="84" value="85  "/>
-                        <StringItem index="85" value="86  "/>
-                        <StringItem index="86" value="87  "/>
-                        <StringItem index="87" value="88  "/>
-                        <StringItem index="88" value="89  "/>
-                        <StringItem index="89" value="90  "/>
-                        <StringItem index="90" value="91  "/>
-                        <StringItem index="91" value="92  "/>
-                        <StringItem index="92" value="93  "/>
-                        <StringItem index="93" value="94  "/>
-                        <StringItem index="94" value="95  "/>
-                        <StringItem index="95" value="96  "/>
-                        <StringItem index="96" value="97  "/>
-                        <StringItem index="97" value="98  "/>
-                        <StringItem index="98" value="99  "/>
-                        <StringItem index="99" value="100  "/>
+                        <StringItem index="50" value="51"/>
+                        <StringItem index="51" value="52"/>
+                        <StringItem index="52" value="53"/>
+                        <StringItem index="53" value="54"/>
+                        <StringItem index="54" value="55"/>
+                        <StringItem index="55" value="56"/>
+                        <StringItem index="56" value="57"/>
+                        <StringItem index="57" value="58"/>
+                        <StringItem index="58" value="59"/>
+                        <StringItem index="59" value="60"/>
+                        <StringItem index="60" value="61"/>
+                        <StringItem index="61" value="62"/>
+                        <StringItem index="62" value="63"/>
+                        <StringItem index="63" value="64"/>
+                        <StringItem index="64" value="65"/>
+                        <StringItem index="65" value="66"/>
+                        <StringItem index="66" value="67"/>
+                        <StringItem index="67" value="68"/>
+                        <StringItem index="68" value="69"/>
+                        <StringItem index="69" value="70"/>
+                        <StringItem index="70" value="71"/>
+                        <StringItem index="71" value="72"/>
+                        <StringItem index="72" value="73"/>
+                        <StringItem index="73" value="74"/>
+                        <StringItem index="74" value="75"/>
+                        <StringItem index="75" value="76"/>
+                        <StringItem index="76" value="77"/>
+                        <StringItem index="77" value="78"/>
+                        <StringItem index="78" value="79"/>
+                        <StringItem index="79" value="80"/>
+                        <StringItem index="80" value="81"/>
+                        <StringItem index="81" value="82"/>
+                        <StringItem index="82" value="83"/>
+                        <StringItem index="83" value="84"/>
+                        <StringItem index="84" value="85"/>
+                        <StringItem index="85" value="86"/>
+                        <StringItem index="86" value="87"/>
+                        <StringItem index="87" value="88"/>
+                        <StringItem index="88" value="89"/>
+                        <StringItem index="89" value="90"/>
+                        <StringItem index="90" value="91"/>
+                        <StringItem index="91" value="92"/>
+                        <StringItem index="92" value="93"/>
+                        <StringItem index="93" value="94"/>
+                        <StringItem index="94" value="95"/>
+                        <StringItem index="95" value="96"/>
+                        <StringItem index="96" value="97"/>
+                        <StringItem index="97" value="98"/>
+                        <StringItem index="98" value="99"/>
+                        <StringItem index="99" value="100"/>
                       </StringArray>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -710,6 +698,40 @@
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="180" width="110" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel7">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="hora llegada"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="130" y="210" width="-1" height="20"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JTextField" name="horallegada">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="120" y="240" width="100" height="20"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel8">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="hora ida"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="30" y="210" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JTextField" name="horaida">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="20" y="240" width="80" height="20"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -803,9 +825,6 @@
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="24" style="3"/>
-                    </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\SADIR CUADRO\Pictures\avion.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value=" Flights"/>
                   </Properties>
@@ -973,9 +992,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="24" style="3"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\SADIR CUADRO\Pictures\avion.png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value=" Flights"/>
                   </Properties>
                   <Constraints>
@@ -997,7 +1013,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox6">
+                <Component class="javax.swing.JComboBox" name="origenn">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="3">
@@ -1011,7 +1027,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox6ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="origennActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

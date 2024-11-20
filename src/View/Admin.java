@@ -1,6 +1,12 @@
 package View;
 
+import Model.AdminDAO;
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import Model.ConexionDB;
+import java.sql.Connection;
+import java.sql.SQLException;
+
 
 public class Admin extends javax.swing.JFrame {
 
@@ -34,19 +40,23 @@ public class Admin extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel13 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnagregarvielo = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabel15 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        Origin = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        destino = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        fecha_ida = new com.toedter.calendar.JDateChooser();
+        fechaida = new com.toedter.calendar.JDateChooser();
+        fechregreso = new com.toedter.calendar.JDateChooser();
         jLabel17 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        numeroasientos = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        horallegada = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        horaida = new javax.swing.JTextField();
         jp2 = new javax.swing.JPanel();
         jSeparator4 = new javax.swing.JSeparator();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -66,7 +76,7 @@ public class Admin extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        origenn = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
         jComboBox7 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
@@ -145,7 +155,6 @@ public class Admin extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\SADIR CUADRO\\Pictures\\agregar.png")); // NOI18N
         jLabel1.setText(" Add");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tab1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 110, 60));
@@ -156,7 +165,6 @@ public class Admin extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\SADIR CUADRO\\Pictures\\archivo-de-edicion.png")); // NOI18N
         jLabel2.setText("Modify");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -185,7 +193,6 @@ public class Admin extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\SADIR CUADRO\\Pictures\\circulo-cruzado.png")); // NOI18N
         jLabel3.setText("Eliminate");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -220,27 +227,26 @@ public class Admin extends javax.swing.JFrame {
         jp1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 680, 10));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\SADIR CUADRO\\Pictures\\avion.png")); // NOI18N
         jLabel13.setText(" Flights");
         jp1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 190, 50));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        jButton1.setText("Add");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnagregarvielo.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        btnagregarvielo.setText("Add");
+        btnagregarvielo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnagregarvielo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btnagregarvieloMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton1MousePressed(evt);
+                btnagregarvieloMousePressed(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnagregarvielo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnagregarvieloActionPerformed(evt);
             }
         });
-        jp1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+        jp1.add(btnagregarvielo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -275,35 +281,35 @@ public class Admin extends javax.swing.JFrame {
         jLabel15.setText("Origin");
         jp1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 50, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bogota", "cartagena", " " }));
-        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        Origin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bogota", "cartagena", " " }));
+        Origin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Origin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                OriginActionPerformed(evt);
             }
         });
-        jp1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 110, -1));
+        jp1.add(Origin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 110, -1));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel16.setText("Destination");
         jp1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bogota", "Cartagena" }));
-        jComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jp1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 120, -1));
+        destino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bogota", "Cartagena" }));
+        destino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jp1.add(destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 120, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel5.setText(" Departure date");
         jp1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 110, 20));
-        jp1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 110, 30));
+        jp1.add(fechaida, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 110, 30));
 
-        fecha_ida.setMinSelectableDate(new java.util.Date(-62135747891000L));
-        fecha_ida.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        fechregreso.setMinSelectableDate(new java.util.Date(-62135747891000L));
+        fechregreso.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                fecha_idaPropertyChange(evt);
+                fechregresoPropertyChange(evt);
             }
         });
-        jp1.add(fecha_ida, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 120, 30));
+        jp1.add(fechregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 120, 30));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel17.setText("Entry date");
@@ -313,9 +319,17 @@ public class Admin extends javax.swing.JFrame {
         jLabel4.setText("Seats available");
         jp1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 110, 20));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1  ", "2  ", "3  ", "4  ", "5  ", "6  ", "7  ", "8  ", "9  ", "10  ", "11  ", "12  ", "13  ", "14  ", "15  ", "16  ", "17  ", "18  ", "19  ", "20  ", "21  ", "22  ", "23  ", "24  ", "25  ", "26  ", "27  ", "28  ", "29  ", "30  ", "31  ", "32  ", "33  ", "34  ", "35  ", "36  ", "37  ", "38  ", "39  ", "40  ", "41  ", "42  ", "43  ", "44  ", "45  ", "46  ", "47  ", "48  ", "49  ", "50  ", "51  ", "52  ", "53  ", "54  ", "55  ", "56  ", "57  ", "58  ", "59  ", "60  ", "61  ", "62  ", "63  ", "64  ", "65  ", "66  ", "67  ", "68  ", "69  ", "70  ", "71  ", "72  ", "73  ", "74  ", "75  ", "76  ", "77  ", "78  ", "79  ", "80  ", "81  ", "82  ", "83  ", "84  ", "85  ", "86  ", "87  ", "88  ", "89  ", "90  ", "91  ", "92  ", "93  ", "94  ", "95  ", "96  ", "97  ", "98  ", "99  ", "100  " }));
-        jComboBox3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jp1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 110, -1));
+        numeroasientos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1  ", "2  ", "3  ", "4  ", "5  ", "6  ", "7  ", "8  ", "9  ", "10  ", "11  ", "12  ", "13  ", "14  ", "15  ", "16  ", "17  ", "18  ", "19  ", "20  ", "21  ", "22  ", "23  ", "24  ", "25  ", "26  ", "27  ", "28  ", "29  ", "30  ", "31  ", "32  ", "33  ", "34  ", "35  ", "36  ", "37  ", "38  ", "39  ", "40  ", "41  ", "42  ", "43  ", "44  ", "45  ", "46  ", "47  ", "48  ", "49  ", "50  ", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100" }));
+        numeroasientos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jp1.add(numeroasientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 110, -1));
+
+        jLabel7.setText("hora llegada");
+        jp1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, 20));
+        jp1.add(horallegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 100, 20));
+
+        jLabel8.setText("hora ida");
+        jp1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+        jp1.add(horaida, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 80, 20));
 
         jp2.setBackground(new java.awt.Color(255, 255, 255));
         jp2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -346,7 +360,6 @@ public class Admin extends javax.swing.JFrame {
         jp2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 710, 10));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel18.setIcon(new javax.swing.ImageIcon("C:\\Users\\SADIR CUADRO\\Pictures\\avion.png")); // NOI18N
         jLabel18.setText(" Flights");
         jp2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 190, 50));
 
@@ -397,7 +410,6 @@ public class Admin extends javax.swing.JFrame {
         jp3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 710, 10));
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel23.setIcon(new javax.swing.ImageIcon("C:\\Users\\SADIR CUADRO\\Pictures\\avion.png")); // NOI18N
         jLabel23.setText(" Flights");
         jp3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 190, 50));
 
@@ -405,14 +417,14 @@ public class Admin extends javax.swing.JFrame {
         jLabel24.setText("Origin");
         jp3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 50, -1));
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bogota", "cartagena", " " }));
-        jComboBox6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
+        origenn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bogota", "cartagena", " " }));
+        origenn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        origenn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox6ActionPerformed(evt);
+                origennActionPerformed(evt);
             }
         });
-        jp3.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 110, -1));
+        jp3.add(origenn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 110, -1));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel25.setText("Destination");
@@ -554,25 +566,68 @@ public class Admin extends javax.swing.JFrame {
          tab1.setBackground(new Color (54,90,108));
     }//GEN-LAST:event_jLabel3MouseClicked
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void OriginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OriginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_OriginActionPerformed
 
-    private void fecha_idaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha_idaPropertyChange
+    private void fechregresoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fechregresoPropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_fecha_idaPropertyChange
+    }//GEN-LAST:event_fechregresoPropertyChange
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btnagregarvieloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnagregarvieloMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_btnagregarvieloMouseClicked
 
-    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+    private void btnagregarvieloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnagregarvieloMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MousePressed
+    }//GEN-LAST:event_btnagregarvieloMousePressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnagregarvieloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarvieloActionPerformed
+     String Org = (String) Origin.getSelectedItem();
+    String Dstino = (String) destino.getSelectedItem();
+    java.util.Date fechadIda = fechaida.getDate();
+    java.util.Date fechaVuelta = fechregreso.getDate();
+    String asientos = (String) numeroasientos.getSelectedItem();
+    
+    if (asientos != null && !asientos.trim().isEmpty()) {
+        try {
+            int asientosInt = Integer.parseInt(asientos.trim()); // Elimina los espacios antes de convertir
+        // Ahora puedes usar asientosInt en tu consulta
+        }catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "El número de asientos no es válido.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+} else {
+    JOptionPane.showMessageDialog(this, "Por favor, seleccione el número de asientos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+}
+    String h_ida = horaida.getText();
+    String h_llegada = horallegada.getText();
+    
+    if (Org.equals("-------") || Dstino.equals("-------") || fechadIda == null || fechaVuelta == null || asientos.equals(" ")) {
+        JOptionPane.showMessageDialog(this, "Por favor, seleccione todos los campos requeridos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+    } else {
+        // Convertir las fechas de java.util.Date a java.sql.Date
+        java.sql.Date sqlFechaIda = new java.sql.Date(fechadIda.getTime());
+        java.sql.Date sqlFechaVuelta = new java.sql.Date(fechaVuelta.getTime());
+
+        // Obtener la conexión a la base de datos
+        try (Connection connection = ConexionDB.conectar()) {
+            // Crear una instancia de AdminDAO con la conexión
+            AdminDAO adminDAO = new AdminDAO(connection);
+
+            // Llamar al método para agregar el vuelo
+            boolean vueloAgregado = adminDAO.agregarVuelo(Org, Dstino, sqlFechaIda, sqlFechaVuelta, Integer.parseInt(asientos), h_ida, h_llegada);
+
+            // Verificar si el vuelo fue agregado exitosamente
+            if (vueloAgregado) {
+                JOptionPane.showMessageDialog(this, "Vuelo agregado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Hubo un error al agregar el vuelo", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error de conexión: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+} 
+    }//GEN-LAST:event_btnagregarvieloActionPerformed
 
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
         // TODO add your handling code here:
@@ -582,9 +637,9 @@ public class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fecha_ida1PropertyChange
 
-    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
+    private void origennActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_origennActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox6ActionPerformed
+    }//GEN-LAST:event_origennActionPerformed
 
     private void fecha_ida2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha_ida2PropertyChange
         // TODO add your handling code here:
@@ -624,21 +679,21 @@ public class Admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BarraPrincipal;
-    private com.toedter.calendar.JDateChooser fecha_ida;
+    private javax.swing.JComboBox<String> Origin;
+    private javax.swing.JButton btnagregarvielo;
+    private javax.swing.JComboBox<String> destino;
     private com.toedter.calendar.JDateChooser fecha_ida1;
     private com.toedter.calendar.JDateChooser fecha_ida2;
-    private javax.swing.JButton jButton1;
+    private com.toedter.calendar.JDateChooser fechaida;
+    private com.toedter.calendar.JDateChooser fechregreso;
+    private javax.swing.JTextField horaida;
+    private javax.swing.JTextField horallegada;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBox7;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
@@ -662,6 +717,8 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -678,6 +735,8 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jp2;
     private javax.swing.JPanel jp3;
     private javax.swing.JPanel movimientoDeLaPagina;
+    private javax.swing.JComboBox<String> numeroasientos;
+    private javax.swing.JComboBox<String> origenn;
     private javax.swing.JPanel panel;
     private javax.swing.JPanel panel2;
     private javax.swing.JPanel tab1;

@@ -126,8 +126,8 @@ public class planes extends javax.swing.JFrame {
         jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 200, 60));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("jLabel1");
-        jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        jLabel1.setText("sasd");
+        jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 120, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 200, 290));
 
