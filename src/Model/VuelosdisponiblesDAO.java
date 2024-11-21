@@ -84,17 +84,23 @@ public class VuelosdisponiblesDAO {
 
 
   
-  public boolean actualizarAsientosDisponibles(int vueloId, int cantidadAsientos) {
+  public boolean actualizarAsientosDisponibles(int Id, int asientosDisponibles) {
     String sql = "UPDATE vuelosdisponibles SET asientos_disponibles = asientos_disponibles - ? WHERE id = ? AND asientos_disponibles >= ?";
     boolean actualizado = false;
+
+    // Validación para asegurarse de que la cantidad de asientos sea positiva y válida
+    if (asientosDisponibles <= 0) {
+        System.out.println("La cantidad de asientos debe ser mayor que cero.");
+        return false;
+    }
 
     try (Connection conn = ConexionDB.conectar(); 
          PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-        // Verifica si hay suficientes asientos disponibles
-        pstmt.setInt(1, cantidadAsientos);
-        pstmt.setInt(2, vueloId);
-        pstmt.setInt(3, cantidadAsientos);
+        // Establecer los parámetros de la consulta
+        pstmt.setInt(1, asientosDisponibles);  // La cantidad de asientos a disminuir
+        pstmt.setInt(2, Id);            // ID del vuelo
+        pstmt.setInt(3, asientosDisponibles);  // Asegura que haya suficientes asientos disponibles
 
         // Ejecuta la actualización
         int filasActualizadas = pstmt.executeUpdate();

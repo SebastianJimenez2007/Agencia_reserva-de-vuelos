@@ -170,7 +170,7 @@ public class vuelosdisponibles extends javax.swing.JFrame {
 
         lblDato.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 36)); // NOI18N
         lblDato.setText("--------------------------");
-        jPanel8.add(lblDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 340, -1));
+        jPanel8.add(lblDato, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 340, -1));
 
         jButton3.setBackground(new java.awt.Color(54, 90, 108));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));

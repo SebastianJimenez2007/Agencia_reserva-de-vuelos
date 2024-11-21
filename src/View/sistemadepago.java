@@ -33,7 +33,7 @@ public class sistemadepago extends javax.swing.JFrame {
         Usuario usuario = userDao.obtenerUsuarioPorId(idUsuario);
 
         if (usuario != null) {
-            txtnombre.setText(usuario.getNombre());
+            vdestino.setText(usuario.getNombre());
             txtcorreo.setText(usuario.getCorreo());
             txtconfcorreo.setText(usuario.getCorreo());
             txttel.setText(usuario.getTelefono());
@@ -59,8 +59,6 @@ public class sistemadepago extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField4 = new javax.swing.JTextField();
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -75,15 +73,32 @@ public class sistemadepago extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jComboBox4 = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         MetodoDePago1 = new javax.swing.JRadioButton();
         MetodoDePago2 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
-        txtnombre = new javax.swing.JTextField();
+        vdestino = new javax.swing.JTextField();
         txtid = new javax.swing.JTextField();
         txtcorreo = new javax.swing.JTextField();
         txtconfcorreo = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtnombre = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        fechavuelta = new javax.swing.JTextField();
+        fecha_ida = new com.toedter.calendar.JDateChooser();
+        jLabel12 = new javax.swing.JLabel();
+        vorigen = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        preciovuelo = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        fechaida = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        horasalida = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        horallegada = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        numerodeasientos = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,26 +111,20 @@ public class sistemadepago extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("Datos de contacto");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 300, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 300, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Celular *");
         jLabel2.setPreferredSize(new java.awt.Dimension(58, 20));
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 70, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MES", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 60, 20));
-
-        jTextField4.setText("AAAA");
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 50, 20));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 70, -1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "------", "Men", "Woman" }));
         jComboBox2.setPreferredSize(new java.awt.Dimension(64, 22));
-        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 70, 20));
+        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 140, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel8.setText("Elegir metodo de pago");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 270, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, 270, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Nombre *");
@@ -125,22 +134,22 @@ public class sistemadepago extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setText("Fecha de nacimiento *");
         jLabel13.setPreferredSize(new java.awt.Dimension(58, 20));
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 150, -1));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 150, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel14.setText("Sexo *");
         jLabel14.setPreferredSize(new java.awt.Dimension(58, 20));
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 70, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 70, -1));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel15.setText("Correo *");
         jLabel15.setPreferredSize(new java.awt.Dimension(58, 20));
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 70, -1));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 70, -1));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel16.setText("Confirmar correo *");
         jLabel16.setPreferredSize(new java.awt.Dimension(58, 20));
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 120, -1));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 120, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Tipo de identificación *");
@@ -148,8 +157,8 @@ public class sistemadepago extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Numero de identificación *");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
-        jPanel2.add(txttel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 160, 30));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, -1, -1));
+        jPanel2.add(txttel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 160, 30));
 
         selectid.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cedula de ciudadania", "Pasaporte de extrangeria" }));
         jPanel2.add(selectid, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 160, 30));
@@ -173,12 +182,9 @@ public class sistemadepago extends javax.swing.JFrame {
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 40));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DD", "01", "02", "03", "04", "05", "06", "07", "08", "09" }));
-        jPanel2.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 50, 20));
-
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel10.setText("Datos personales");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 220, -1));
+        jLabel10.setText("Datos de vuelo");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 220, -1));
 
         MetodoDePago1.setText("Transferencia");
         MetodoDePago1.addActionListener(new java.awt.event.ActionListener() {
@@ -186,7 +192,7 @@ public class sistemadepago extends javax.swing.JFrame {
                 MetodoDePago1ActionPerformed(evt);
             }
         });
-        jPanel2.add(MetodoDePago1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, -1, -1));
+        jPanel2.add(MetodoDePago1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, -1, -1));
 
         MetodoDePago2.setText("Tarjeta de credito o debito");
         MetodoDePago2.addActionListener(new java.awt.event.ActionListener() {
@@ -194,7 +200,7 @@ public class sistemadepago extends javax.swing.JFrame {
                 MetodoDePago2ActionPerformed(evt);
             }
         });
-        jPanel2.add(MetodoDePago2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, -1));
+        jPanel2.add(MetodoDePago2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 390, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(38, 75, 100));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -205,17 +211,85 @@ public class sistemadepago extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, 160, 40));
-        jPanel2.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 160, 30));
-        jPanel2.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 160, 30));
-        jPanel2.add(txtcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 160, 30));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 430, 160, 40));
+        jPanel2.add(vdestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 110, 30));
+
+        txtid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 160, 30));
+        jPanel2.add(txtcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 160, 30));
 
         txtconfcorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtconfcorreoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtconfcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 160, 30));
+        jPanel2.add(txtconfcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, 160, 30));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel11.setText("Datos personales");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 220, -1));
+
+        txtnombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnombreActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 160, 30));
+
+        jLabel1.setText("Fecha vuelta");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, -1, -1));
+
+        jLabel6.setText("Destino");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, -1, -1));
+        jPanel2.add(fechavuelta, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 110, 30));
+
+        fecha_ida.setMinSelectableDate(new java.util.Date(-62135747891000L));
+        fecha_ida.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                fecha_idaPropertyChange(evt);
+            }
+        });
+        jPanel2.add(fecha_ida, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 160, 30));
+
+        jLabel12.setText("Origen");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, -1, -1));
+        jPanel2.add(vorigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 100, 30));
+
+        jLabel17.setText("Precio de vuelo");
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, -1, -1));
+
+        preciovuelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                preciovueloActionPerformed(evt);
+            }
+        });
+        jPanel2.add(preciovuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 110, 30));
+
+        jLabel18.setText("Fecha ida");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, -1));
+        jPanel2.add(fechaida, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 100, 30));
+
+        jLabel19.setText("Hora salida");
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
+        jPanel2.add(horasalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 100, 30));
+
+        jLabel20.setText("Hora llegada");
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 200, -1, -1));
+        jPanel2.add(horallegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 110, 30));
+
+        jLabel21.setText("Asientos");
+        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
+
+        numerodeasientos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numerodeasientosActionPerformed(evt);
+            }
+        });
+        jPanel2.add(numerodeasientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 100, 30));
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 800, 500);
@@ -279,6 +353,26 @@ if (!correo.matches(emailRegex)) {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtconfcorreoActionPerformed
 
+    private void fecha_idaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha_idaPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fecha_idaPropertyChange
+
+    private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidActionPerformed
+
+    private void preciovueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preciovueloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_preciovueloActionPerformed
+
+    private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnombreActionPerformed
+
+    private void numerodeasientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numerodeasientosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numerodeasientosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -318,32 +412,47 @@ if (!correo.matches(emailRegex)) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton MetodoDePago1;
     private javax.swing.JRadioButton MetodoDePago2;
+    private com.toedter.calendar.JDateChooser fecha_ida;
+    private javax.swing.JTextField fechaida;
+    private javax.swing.JTextField fechavuelta;
+    private javax.swing.JTextField horallegada;
+    private javax.swing.JTextField horasalida;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField numerodeasientos;
+    private javax.swing.JTextField preciovuelo;
     private javax.swing.JComboBox<String> selectid;
     private javax.swing.JTextField txtconfcorreo;
     private javax.swing.JTextField txtcorreo;
     private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txttel;
+    private javax.swing.JTextField vdestino;
+    private javax.swing.JTextField vorigen;
     // End of variables declaration//GEN-END:variables
 }

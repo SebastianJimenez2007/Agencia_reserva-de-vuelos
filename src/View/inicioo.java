@@ -5,6 +5,7 @@
 package View;
 
 
+
 import Model.Vuelosdisponibles;
 import Model.VuelosdisponiblesDAO;
 import java.util.Calendar;
@@ -214,8 +215,7 @@ public class inicioo extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNpersonasActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      
-        //agarramos los datos del usuario
+
        String origen = (String) txtOrigen.getSelectedItem();
        String destino = (String) txtDestino.getSelectedItem();
        String Npersonas = (String) txtNpersonas.getSelectedItem();
