@@ -8,6 +8,7 @@ package View;
 import Model.Sesion;
 import Model.Usuario;
 import Model.UsuarioDAO;
+import Model.SesionDatosVuelo;
 import javax.swing.*;
 /**
  *
@@ -23,8 +24,33 @@ public class sistemadepago extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         cargarDatosUsuario();
+        cargarDatosVuelo(); 
+        
+        
         
     }
+    
+     private void cargarDatosVuelo() {
+        // Recuperamos los datos de la clase SesionDatosVuelo usando los getters
+        String origen = SesionDatosVuelo.getOrigen();
+        String destino = SesionDatosVuelo.getDestino();
+        String fechaIda = SesionDatosVuelo.getFechaIda();
+        String fechaVuelta = SesionDatosVuelo.getFechaVuelta();
+        int numeroPersonas = SesionDatosVuelo.getAsientosDisponibles();
+        int idVuelo = SesionDatosVuelo.getIdVuelo();
+       
+
+        // Asignamos esos valores a los campos de texto (JTextField) en el JFrame
+        vorigen.setText(origen);      // Asigna el valor de origen al JTextField correspondiente
+        vdestino.setText(destino);    // Asigna el valor de destino
+        fechaida.setText(fechaIda); // Asigna el valor de la fecha de ida
+        fechavuelta.setText(fechaVuelta); // Asigna el valor de la fecha de vuelta
+        numerodeasientos.setText(String.valueOf(numeroPersonas)); // Asigna el valor del número de personas
+        id.setText(String.valueOf(idVuelo));
+       
+    }
+
+
     private void cargarDatosUsuario() {
         int idUsuario = Sesion.getIdUsuario(); // Obtener el id_usuario desde la sesión
 
@@ -33,7 +59,7 @@ public class sistemadepago extends javax.swing.JFrame {
         Usuario usuario = userDao.obtenerUsuarioPorId(idUsuario);
 
         if (usuario != null) {
-            vdestino.setText(usuario.getNombre());
+            txtnombre.setText(usuario.getNombre());
             txtcorreo.setText(usuario.getCorreo());
             txtconfcorreo.setText(usuario.getCorreo());
             txttel.setText(usuario.getTelefono());
@@ -60,7 +86,6 @@ public class sistemadepago extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -74,8 +99,6 @@ public class sistemadepago extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        MetodoDePago1 = new javax.swing.JRadioButton();
-        MetodoDePago2 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         vdestino = new javax.swing.JTextField();
         txtid = new javax.swing.JTextField();
@@ -99,6 +122,8 @@ public class sistemadepago extends javax.swing.JFrame {
         horallegada = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         numerodeasientos = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        id = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,10 +146,6 @@ public class sistemadepago extends javax.swing.JFrame {
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "------", "Men", "Woman" }));
         jComboBox2.setPreferredSize(new java.awt.Dimension(64, 22));
         jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 140, 30));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel8.setText("Elegir metodo de pago");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, 270, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Nombre *");
@@ -186,22 +207,6 @@ public class sistemadepago extends javax.swing.JFrame {
         jLabel10.setText("Datos de vuelo");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 220, -1));
 
-        MetodoDePago1.setText("Transferencia");
-        MetodoDePago1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MetodoDePago1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(MetodoDePago1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, -1, -1));
-
-        MetodoDePago2.setText("Tarjeta de credito o debito");
-        MetodoDePago2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MetodoDePago2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(MetodoDePago2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 390, -1, -1));
-
         jButton1.setBackground(new java.awt.Color(38, 75, 100));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -211,7 +216,13 @@ public class sistemadepago extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 430, 160, 40));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 160, 40));
+
+        vdestino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vdestinoActionPerformed(evt);
+            }
+        });
         jPanel2.add(vdestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 110, 30));
 
         txtid.addActionListener(new java.awt.event.ActionListener() {
@@ -259,15 +270,15 @@ public class sistemadepago extends javax.swing.JFrame {
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, -1, -1));
         jPanel2.add(vorigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 100, 30));
 
-        jLabel17.setText("Precio de vuelo");
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, -1, -1));
+        jLabel17.setText("ID vuelo");
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, -1, -1));
 
         preciovuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 preciovueloActionPerformed(evt);
             }
         });
-        jPanel2.add(preciovuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 110, 30));
+        jPanel2.add(preciovuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, 100, 30));
 
         jLabel18.setText("Fecha ida");
         jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, -1));
@@ -289,7 +300,11 @@ public class sistemadepago extends javax.swing.JFrame {
                 numerodeasientosActionPerformed(evt);
             }
         });
-        jPanel2.add(numerodeasientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 100, 30));
+        jPanel2.add(numerodeasientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 40, 30));
+
+        jLabel22.setText("Precio de vuelo");
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, -1, -1));
+        jPanel2.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 270, 60, 30));
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 800, 500);
@@ -316,14 +331,6 @@ public class sistemadepago extends javax.swing.JFrame {
         new planes().setVisible(true);
         this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void MetodoDePago1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MetodoDePago1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MetodoDePago1ActionPerformed
-
-    private void MetodoDePago2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MetodoDePago2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MetodoDePago2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        String Nombre =  txtnombre.getText();
@@ -373,6 +380,10 @@ if (!correo.matches(emailRegex)) {
         // TODO add your handling code here:
     }//GEN-LAST:event_numerodeasientosActionPerformed
 
+    private void vdestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vdestinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vdestinoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -410,13 +421,12 @@ if (!correo.matches(emailRegex)) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton MetodoDePago1;
-    private javax.swing.JRadioButton MetodoDePago2;
     private com.toedter.calendar.JDateChooser fecha_ida;
     private javax.swing.JTextField fechaida;
     private javax.swing.JTextField fechavuelta;
     private javax.swing.JTextField horallegada;
     private javax.swing.JTextField horasalida;
+    private javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -434,12 +444,12 @@ if (!correo.matches(emailRegex)) {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

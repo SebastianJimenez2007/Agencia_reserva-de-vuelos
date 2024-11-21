@@ -47,6 +47,8 @@ public class VuelosdisponiblesDAO {
         return listaVuelos;
     }
   
+  
+  
   public Vuelosdisponibles buscarFechaCercana(String origen, String destino, String fechaIda) {
     Vuelosdisponibles vuelo = null;
     
@@ -121,7 +123,40 @@ public class VuelosdisponiblesDAO {
 
     return actualizado;
 }
+  public void seleccionarVuelo(int idVueloSeleccionado, String origen, String destino, String fechaIda, String fechaVuelta, int numeroPersonas) {
+    // Establecemos la conexión a la base de datos utilizando la clase ConexionDB
+    try (Connection connection = ConexionDB.conectar()) {
+        // Consulta SQL para obtener la hora de salida y llegada
+        String query = "SELECT hora_salida, hora_llegada FROM vuelosdisponibles WHERE id = ?";
+        
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            // Establecemos el parámetro con el id del vuelo seleccionado
+            ps.setInt(1, idVueloSeleccionado);
+            ResultSet rs = ps.executeQuery();
+            
+            // Si encontramos un resultado, obtenemos las horas
+            if (rs.next()) {
+                String horaSalida = rs.getString("hora_salida");
+                String horaLlegada = rs.getString("hora_llegada");
+                
+                // Verificamos si las horas son nulas y las asignamos si no lo son
+                if (horaSalida != null && horaLlegada != null) {
+                    // Ahora pasamos estos datos a la clase SesionDatosVuelo
+                    SesionDatosVuelo.setDatosVuelo(numeroPersonas, origen, destino, fechaIda, fechaVuelta, idVueloSeleccionado, horaSalida, horaLlegada);
+                } else {
+                    System.out.println("Las horas de salida o llegada son nulas.");
+                }
+            } else {
+                System.out.println("No se encontró el vuelo con ID: " + idVueloSeleccionado);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al ejecutar la consulta: " + e.getMessage());
+        }
+    } catch (SQLException e) {
+        System.err.println("Error de conexión a la base de datos: " + e.getMessage());
+    }
+}
   
-  
+ 
     
 }

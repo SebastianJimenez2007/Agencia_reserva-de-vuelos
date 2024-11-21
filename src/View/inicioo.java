@@ -6,6 +6,7 @@ package View;
 
 
 
+import Model.SesionDatosVuelo;
 import Model.Vuelosdisponibles;
 import Model.VuelosdisponiblesDAO;
 import java.util.Calendar;
@@ -246,6 +247,19 @@ public class inicioo extends javax.swing.JFrame {
         
        if (!vuelos.isEmpty()) {
          vuelosdisponibles ventanaVuelos = new vuelosdisponibles();
+         
+         Vuelosdisponibles vueloSeleccionado = vuelos.get(0);
+         
+         SesionDatosVuelo.setDatosVuelo(
+        vueloSeleccionado.getId(), 
+        vueloSeleccionado.getOrigen(), 
+        vueloSeleccionado.getDestino(), 
+        vueloSeleccionado.getFechaSalida(), 
+        vueloSeleccionado.getFechaVuelta(), 
+        numPersonas, 
+        vueloSeleccionado.getAsientosDisponibles()
+    );
+
          ventanaVuelos.setDato(origen + " >>> " + destino);
          ventanaVuelos.setVisible(true);
          this.setVisible(false);
@@ -256,7 +270,7 @@ public class inicioo extends javax.swing.JFrame {
          
         } else {
         Vuelosdisponibles vueloCercano = dao.buscarFechaCercana(origen, destino, fechaIdaStr); // Mover aquí
-
+        
         if (vueloCercano != null) {
         // Mostrar la fecha más cercana
         JOptionPane.showMessageDialog(this, "No hay vuelos disponibles para la cecha seleccionada. " + "el vuelo mas sercano esta para: " + vueloCercano.getFechaSalida());
