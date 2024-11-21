@@ -47,7 +47,6 @@ public class Login extends javax.swing.JFrame {
         Btenter = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         btsingup = new javax.swing.JToggleButton();
-        jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,41 +56,38 @@ public class Login extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(54, 90, 108));
         jPanel2.setPreferredSize(new java.awt.Dimension(400, 500));
-        jPanel2.setLayout(null);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Variable", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("NOESAVIANCA");
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(30, 190, 260, 44);
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 260, 44));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 63, Short.MAX_VALUE)
+            .addGap(0, 60, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 8, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanel6);
-        jPanel6.setBounds(87, 261, 63, 8);
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 261, 60, -1));
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 99, Short.MAX_VALUE)
+            .addGap(0, 70, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 10, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanel8);
-        jPanel8.setBounds(30, 180, 99, 10);
+        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 70, -1));
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -104,8 +100,7 @@ public class Login extends javax.swing.JFrame {
             .addGap(0, 3, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanel10);
-        jPanel10.setBounds(30, 236, 256, 3);
+        jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 236, -1, -1));
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -118,8 +113,7 @@ public class Login extends javax.swing.JFrame {
             .addGap(0, 10, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanel12);
-        jPanel12.setBounds(87, 245, 99, 10);
+        jPanel2.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 245, -1, -1));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -132,8 +126,7 @@ public class Login extends javax.swing.JFrame {
             .addGap(0, 10, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanel14);
-        jPanel14.setBounds(30, 160, 43, 10);
+        jPanel2.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, 10));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 500));
 
@@ -163,10 +156,10 @@ public class Login extends javax.swing.JFrame {
                 BtenterActionPerformed(evt);
             }
         });
-        jPanel5.add(Btenter, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 75, -1));
+        jPanel5.add(Btenter, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 150, 30));
 
         jLabel5.setText("Need an acoount?");
-        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 110, -1));
+        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 110, -1));
 
         btsingup.setText("SingUp");
         btsingup.addActionListener(new java.awt.event.ActionListener() {
@@ -174,15 +167,7 @@ public class Login extends javax.swing.JFrame {
                 btsingupActionPerformed(evt);
             }
         });
-        jPanel5.add(btsingup, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 80, 20));
-
-        jButton1.setText("Close");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
+        jPanel5.add(btsingup, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 80, 20));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 300, 400));
 
@@ -245,11 +230,6 @@ if (nombre.isEmpty() || contraseña.isEmpty()) {
         this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_btsingupActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new inicioo().setVisible(true);
-        this.setVisible(false);// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -288,7 +268,6 @@ if (nombre.isEmpty() || contraseña.isEmpty()) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btenter;
     private javax.swing.JToggleButton btsingup;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
