@@ -225,7 +225,7 @@ if (nombre.isEmpty() || contraseña.isEmpty()) {
 } else if (role != null) {
     
     if (role.equals("admin")) {
-        new Admin().setVisible(true);
+        new AdminInterfaz().setVisible(true);
         this.setVisible(false); 
         
     } else {
